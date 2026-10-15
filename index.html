@@ -702,6 +702,159 @@ html[lang="zh-Hant"] .venue-map-link {
   font-family: var(--chinese-art);
   font-size: 16px;
 }
+    /* TRANSPORT SECTION */
+
+.transport-section {
+  padding-top: 110px;
+  padding-bottom: 120px;
+}
+
+.transport-heading {
+  margin-bottom: 55px;
+}
+
+.transport-photo {
+  position: relative;
+  width: 100%;
+  height: clamp(300px, 43vw, 580px);
+  overflow: hidden;
+  margin-bottom: 95px;
+  background: #e8dfce;
+}
+
+.transport-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.transport-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 35px 45px;
+  color: #fff;
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, .45)
+  );
+}
+
+.transport-photo-caption span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .25em;
+  margin-bottom: 8px;
+}
+
+.transport-photo-caption strong {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 400;
+  letter-spacing: .04em;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 7vw, 110px);
+  align-items: start;
+}
+
+.transport-item {
+  display: grid;
+  grid-template-columns: 45px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+.transport-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.transport-number {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 25px;
+}
+
+.transport-item h3 {
+  margin: 0 0 13px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-weight: 400;
+}
+
+.transport-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.transport-link {
+  display: inline-block;
+  margin-top: 17px;
+  padding-bottom: 5px;
+  color: var(--gold);
+  border-bottom: 1px solid currentColor;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.transport-link:hover {
+  opacity: .65;
+}
+
+.transport-map iframe {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  filter: saturate(.7);
+}
+
+.transport-map-note {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+html[lang="zh-Hant"] .transport-item h3,
+html[lang="zh-Hant"] .transport-item p,
+html[lang="zh-Hant"] .transport-link,
+html[lang="zh-Hant"] .transport-map-note {
+  font-family: var(--chinese-art);
+}
+
+@media (max-width: 767px) {
+  .transport-section {
+    padding-top: 75px;
+    padding-bottom: 80px;
+  }
+
+  .transport-photo {
+    height: 300px;
+    margin-bottom: 55px;
+  }
+
+  .transport-photo-caption {
+    padding: 25px;
+  }
+
+  .transport-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .transport-map iframe {
+    min-height: 330px;
+    height: 330px;
+  }
+}
     
   </style>
 
@@ -803,6 +956,102 @@ html[lang="zh-Hant"] .venue-map-link {
       </div>
     </section>
 
+    <section class="paper-section transport-section" id="transport">
+  <div class="section-shell">
+
+    <div class="transport-heading reveal">
+      <div class="eyebrow section-label" data-i18n="transportKicker">
+        The Journey
+      </div>
+
+      <h2 class="section-heading" data-i18n="transportTitle">
+        Getting <em>There</em>
+      </h2>
+
+      <p class="section-copy" data-i18n="transportIntro">
+        A little guide to help you find your way to our celebration.
+      </p>
+    </div>
+
+    <div class="transport-photo reveal">
+      <img
+        src="greenhouse.jpg"
+        alt="GREENHOUSE wedding venue in Yuen Long"
+        loading="lazy"
+      >
+      <div class="transport-photo-caption">
+        <span>THE VENUE</span>
+        <strong>GREENHOUSE · YUEN LONG</strong>
+      </div>
+    </div>
+
+    <div class="transport-grid">
+
+      <div class="transport-information reveal">
+
+        <div class="transport-item">
+          <span class="transport-number">01</span>
+          <div>
+            <h3 data-i18n="transportShuttle">接駁小巴</h3>
+            <p data-i18n="transportShuttleDesc">
+              接駁安排尚待確認，詳細資訊將於婚禮前公布。
+            </p>
+          </div>
+        </div>
+
+        <div class="transport-item">
+          <span class="transport-number">02</span>
+          <div>
+            <h3 data-i18n="transportDriving">自行駕車</h3>
+            <p data-i18n="transportDrivingDesc">
+              自行駕車的賓客可參考附近的水尾村露天訪客停車場。
+            </p>
+
+            <a
+              class="transport-link"
+              href="https://www.google.com/maps/place/Shui+Mei+Tsuen+Outdoor+Visitor+Car+Park/@22.4497459,114.0612565,17z"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="parkingLink"
+            >
+              查看停車場位置 ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="transport-item">
+          <span class="transport-number">03</span>
+          <div>
+            <h3 data-i18n="transportTaxi">的士 / Uber</h3>
+            <p data-i18n="transportTaxiDesc">
+              可使用 Google Maps 導航前往 GREENHOUSE。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="transport-map reveal reveal-delay">
+        <iframe
+          title="GREENHOUSE venue location"
+          src="https://www.google.com/maps?q=22.4498594,114.0605032&amp;z=16&amp;output=embed"
+          width="100%"
+          height="420"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+
+        <p class="transport-map-note" data-i18n="mapNote">
+          GREENHOUSE · 351 Shui Mei Tsuen, Kam Tin
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+    
     <section class="paper-section paper-section--cream" id="schedule" aria-labelledby="scheduleTitle">
       <div class="section-shell schedule-layout">
         <div class="schedule-intro reveal">
@@ -906,6 +1155,17 @@ html[lang="zh-Hant"] .venue-map-link {
         venuePending: 'GREENHOUSE',
         locationPending: '351 Shui Mei Tsuen, Kam Tin, Yuen Long, New Territories',  
         mapLink: 'Get Directions ↗',
+        transportKicker: 'The Journey',
+transportTitle: 'Getting <em>There</em>',
+transportIntro: 'A little guide to help you find your way to our celebration.',
+transportShuttle: 'Shuttle Service',
+transportShuttleDesc: 'Shuttle arrangements are yet to be confirmed. Pick-up details and departure times will be shared closer to the wedding.',
+transportDriving: 'By Car',
+transportDrivingDesc: 'Guests travelling by car may consider the nearby Shui Mei Tsuen Outdoor Visitor Car Park. Please allow extra time for your journey.',
+transportTaxi: 'Taxi / Uber',
+transportTaxiDesc: 'You can use Google Maps to navigate to GREENHOUSE. Please confirm your destination and drop-off point before travelling.',
+parkingLink: 'View Car Park ↗',
+mapNote: 'GREENHOUSE · 351 Shui Mei Tsuen, Kam Tin, Yuen Long',
         scheduleKicker: 'A Day to Remember',
 scheduleTitle: 'Wedding <em>Schedule</em>',
 scheduleCopy: 'We cannot wait to share this special day with you.',
@@ -934,6 +1194,17 @@ where: '地點',
 venuePending: 'GREENHOUSE',
 locationPending: '新界元朗錦田水尾村351號',
 mapLink: 'Google Maps 導航 ↗',
+        transportKicker: '前往幸福的路上',
+transportTitle: '交通<em>指南</em>',
+transportIntro: '期待與你在這個特別的日子相聚，以下是前往婚禮場地的交通資訊。',
+transportShuttle: '接駁小巴',
+transportShuttleDesc: '接駁安排尚待確認，詳細上車地點及時間將於婚禮前公布。',
+transportDriving: '自行駕車',
+transportDrivingDesc: '自行駕車的賓客可參考附近的水尾村露天訪客停車場，建議預留充足交通時間。',
+transportTaxi: '的士 / Uber',
+transportTaxiDesc: '可使用 Google Maps 導航前往 GREENHOUSE，出發前建議確認目的地及落車位置。',
+parkingLink: '查看停車場位置 ↗',
+mapNote: 'GREENHOUSE · 新界元朗錦田水尾村351號',
         scheduleKicker: '值得珍藏的一天',
 scheduleTitle: '婚禮<em>流程</em>',
 scheduleCopy: '期待與你一同分享這個充滿愛與喜悅的日子。',
