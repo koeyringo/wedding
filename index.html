@@ -597,14 +597,19 @@
       display: none;
     }
 
-    /* Story heading — allow two lines without reducing font size */
+      /* Story title — exactly two lines */
     html[lang="zh-Hant"] #story .section-heading {
-      max-width: 100%;
       width: 100%;
-      font-size: clamp(36px, 5.5vw, 72px);
+      max-width: none;
+      font-size: clamp(36px, 4vw, 64px);
+      line-height: 1.4;
       letter-spacing: -.04em;
-      line-height: 1.35;
       white-space: normal;
+    }
+
+    html[lang="zh-Hant"] #story .story-title-line {
+      display: block;
+      white-space: nowrap;
     }
     
     /* Keep each line of the Chinese story title together */
