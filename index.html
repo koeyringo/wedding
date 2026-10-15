@@ -671,6 +671,37 @@
         font-size: 13px;
       }
     }
+
+      /* Hide empty wedding details text */
+      #details .section-copy:empty,
+      #details .detail__sub:empty,
+      #details .detail__note:empty {
+        display: none;
+      }
+
+    /* Wedding venue Google Maps link */
+
+.venue-map-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: .03em;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 5px;
+  transition: opacity .3s ease;
+}
+
+.venue-map-link:hover {
+  opacity: .65;
+}
+
+html[lang="zh-Hant"] .venue-map-link {
+  font-family: var(--chinese-art);
+  font-size: 16px;
+}
     
   </style>
 
@@ -758,6 +789,15 @@
             <div class="detail__term" data-i18n="where">Where</div>
             <h3 class="detail__answer" data-i18n="venuePending">Venue to<br>be announced</h3>
             <p class="detail__note" data-i18n="locationPending">Location details coming soon</p>
+            <a
+  class="venue-map-link"
+  href="https://www.google.com/maps/search/?api=1&amp;query=Greenhouse%20Kam%20Tin%20Hong%20Kong&amp;query_place_id=ChIJR3L0dwD3AzQRm-DMIZEoYpU"
+  target="_blank"
+  rel="noopener noreferrer"
+  data-i18n="mapLink"
+>
+  Get Directions ↗
+</a>
           </article>
         </div>
       </div>
@@ -856,7 +896,16 @@
         heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'A day made for the beginning of forever.', discover: 'Discover',
         countKicker: 'Save the date', countTitle: 'The <em>countdown</em><br>begins.', countCopy: 'Until the day we begin our next beautiful chapter together.', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
         storyKicker: 'Chapter one', storyTitle: 'Our <em>story</em>,<br>still unfolding.', storyCopy: 'Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.', photoMain: 'A photo, to come', photoSmall: 'Your moment', photoCaption: 'A place reserved for the moments that tell our story.',
-        detailsKicker: 'Mark the day', detailsTitle: 'Wedding <em>details</em>', detailsCopy: 'We will share the time and venue as soon as they are confirmed. For now, please keep this day close.', when: 'When', fullDate: 'Sunday<br>21 March 2027', timePending: 'Time to be announced', where: 'Where', venuePending: 'Venue to<br>be announced', locationPending: 'Location details coming soon',
+        detailsKicker: 'Mark the day',
+        detailsTitle: 'Wedding <em>details</em>',
+        detailsCopy: '',
+        when: 'When',
+        fullDate: 'Sunday<br>21 March 2027',
+        timePending: '',
+        where: 'Where',
+        venuePending: 'GREENHOUSE',
+        locationPending: '351 Shui Mei Tsuen, Kam Tin, Yuen Long, New Territories',  
+        mapLink: 'Get Directions ↗',
         scheduleKicker: 'A Day to Remember',
 scheduleTitle: 'Wedding <em>Schedule</em>',
 scheduleCopy: 'We cannot wait to share this special day with you.',
@@ -875,7 +924,16 @@ tbc: 'Time to be announced',
         heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '屬於我們的永恆，從這一天開始。', discover: '向下探索',
         countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
         storyKicker: '第一章', storyTitle: '<span class="story-title-line">我們的<em>故事</em>，</span><span class="story-title-line">仍在續寫。</span>', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，預留一個位置。',
-        detailsKicker: '敬請預留這天', detailsTitle: '婚禮<em>資訊</em>', detailsCopy: '婚禮時間及場地確定後會在此更新；現在，先請你為我們預留這個特別日子。', when: '日期', fullDate: '2027年3月21日<br>星期日', timePending: '時間稍後公布', where: '地點', venuePending: '婚禮場地<br>稍後公布', locationPending: '詳細地址即將更新',
+        detailsKicker: '敬請預留這天',
+detailsTitle: '婚禮<em>資訊</em>',
+detailsCopy: '',
+when: '日期',
+fullDate: '2027年3月21日<br>星期日',
+timePending: '',
+where: '地點',
+venuePending: 'GREENHOUSE',
+locationPending: '新界元朗錦田水尾村351號',
+mapLink: 'Google Maps 導航 ↗',
         scheduleKicker: '值得珍藏的一天',
 scheduleTitle: '婚禮<em>流程</em>',
 scheduleCopy: '期待與你一同分享這個充滿愛與喜悅的日子。',
