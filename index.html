@@ -573,7 +573,25 @@
       letter-spacing: 0;
       line-height: 1.15;
     }
+    
+    /* Chinese headings — prevent awkward line breaks */
+    html[lang="zh-Hant"] .section-heading {
+      max-width: none;
+      width: 100%;
+      font-size: clamp(36px, 5vw, 72px);
+      line-height: 1.35;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
 
+    /* Allow headings to wrap naturally on smaller screens */
+    @media (max-width: 767px) {
+      html[lang="zh-Hant"] .section-heading {
+        font-size: clamp(28px, 5.5vw, 42px);
+        white-space: normal;
+      }
+    }
+    
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
