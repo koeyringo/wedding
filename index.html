@@ -693,7 +693,7 @@
       }
     };
 
-    let language = 'en';
+    let language = 'zh';
     const languageToggle = document.getElementById('languageToggle');
     const modal = document.getElementById('rsvpModal');
     const openRsvp = document.getElementById('openRsvp');
@@ -720,6 +720,8 @@
       closeRsvp.setAttribute('aria-label', dictionary.closeRsvp);
     }
     languageToggle.addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
+
+    setLanguage('zh');
 
     function updateCountdown() {
       const weddingDate = new Date('2027-03-21T00:00:00+11:00').getTime();
