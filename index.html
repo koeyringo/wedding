@@ -19,9 +19,11 @@
       --ink: #514638;
       --muted: #756a59;
       --line: rgba(175, 139, 66, .28);
-      --serif: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+      --serif: 'Cormorant Garamond', 'Noto Serif TC', serif;
       --sans: Manrope, "Noto Sans TC", sans-serif;
       --mono: Manrope, "Noto Sans TC", sans-serif;
+      --script: 'Great Vibes', cursive;
+      --chinese-art: 'LXGW WenKai TC', 'Noto Serif TC', serif;
     }
 
     * { box-sizing: border-box; }
@@ -527,7 +529,43 @@
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
     }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Romantic Calligraphy × Luxury Editorial */
+
+    /* English hero title */
+    .hero h1 {
+      font-family: var(--script);
+      font-size: clamp(76px, 11vw, 165px);
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+
+    /* Chinese hero title */
+    html[lang="zh-Hant"] .hero h1 {
+      font-family: var(--chinese-art);
+      font-size: clamp(48px, 7vw, 100px);
+      letter-spacing: .04em;
+      line-height: 1.35;
+    }
+
+    /* Chinese section headings */
+    html[lang="zh-Hant"] .section-heading,
+    html[lang="zh-Hant"] .modal__heading {
+      font-family: 'Noto Serif TC', serif;
+      letter-spacing: .02em;
+      line-height: 1.25;
+    }
+
   </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <a class="skip-link" href="#welcome" data-i18n="skip">Skip to content</a>
