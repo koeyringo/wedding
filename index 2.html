@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e9">
+  <title data-i18n="pageTitle">Koey &amp; Ringo — 21 March 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #fffcf6;
+      --cream: #fffefa;
+      --champagne: #f6ead1;
+      --sand: #e8ce95;
+      --gold: #a98137;
+      --antique: #85652f;
+      --ink: #514638;
+      --muted: #756a59;
+      --line: rgba(175, 139, 66, .28);
+      --serif: "Cormorant Garamond", "Noto Serif TC", Georgia, serif;
+      --sans: Manrope, "Noto Sans TC", sans-serif;
+      --mono: Manrope, "Noto Sans TC", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-width: 320px;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--ivory);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    body::before {
+      position: fixed;
+      z-index: 20;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      opacity: .09;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    ::selection { background: var(--sand); color: var(--ink); }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: -60px;
+      left: 18px;
+      padding: 10px 14px;
+      color: var(--cream);
+      background: var(--ink);
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 18px; }
+
+    .site-header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 27px clamp(22px, 5vw, 82px);
+      color: var(--cream);
+    }
+    .brand {
+      justify-self: start;
+      color: inherit;
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: .12em;
+      line-height: 1;
+      text-decoration: none;
+    }
+    .nav {
+      display: flex;
+      gap: clamp(15px, 2.2vw, 35px);
+      align-items: center;
+    }
+    .nav a, .language-toggle {
+      color: inherit;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav a { opacity: .86; transition: opacity .25s ease; }
+    .nav a:hover, .nav a:focus-visible { opacity: 1; }
+    .language-toggle {
+      justify-self: end;
+      border: 1px solid rgba(255,250,241,.7);
+      border-radius: 999px;
+      padding: 9px 12px 8px;
+      background: rgba(255,250,241,.05);
+      transition: background .25s ease, color .25s ease;
+    }
+    .language-toggle:hover, .language-toggle:focus-visible { color: var(--ink); background: var(--cream); }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: max(720px, 100svh);
+      isolation: isolate;
+      overflow: hidden;
+      color: var(--cream);
+      background:
+        radial-gradient(circle at 72% 19%, rgba(237, 215, 177, .35), transparent 25%),
+        radial-gradient(circle at 20% 90%, rgba(130, 89, 47, .44), transparent 34%),
+        linear-gradient(125deg, #453326 0%, #6e4e31 44%, #32241c 100%);
+    }
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      top: clamp(90px, 13vw, 180px);
+      right: -8vw;
+      width: min(74vw, 840px);
+      height: min(83vw, 950px);
+      border: 1px solid rgba(250, 235, 208, .45);
+      border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+      content: "";
+      opacity: .76;
+      box-shadow: inset 0 0 80px rgba(255,242,220,.1), 0 0 0 18px rgba(255,245,225,.035);
+    }
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(255,246,230,.28);
+      content: "";
+    }
+    .hero__grain {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      opacity: .2;
+      background: repeating-linear-gradient(120deg, transparent 0 12px, rgba(255,255,255,.04) 13px 14px);
+    }
+    .hero__ring {
+      position: absolute;
+      top: 19%;
+      left: 7%;
+      width: clamp(110px, 16vw, 230px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,240,212,.44);
+      border-radius: 50%;
+    }
+    .hero__ring::before, .hero__ring::after {
+      position: absolute;
+      border: 1px solid rgba(255,240,212,.22);
+      border-radius: inherit;
+      content: "";
+    }
+    .hero__ring::before { inset: 10%; }
+    .hero__ring::after { inset: 21%; }
+    .hero__content {
+      display: grid;
+      align-self: center;
+      width: min(1220px, 100%);
+      margin: auto;
+      padding: 138px clamp(32px, 9vw, 142px) 104px;
+    }
+    .hero__eyebrow, .eyebrow {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .19em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .hero__eyebrow::before, .eyebrow::before {
+      width: 32px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+      opacity: .72;
+    }
+    .hero h1 {
+      max-width: 850px;
+      margin: clamp(26px, 5vw, 58px) 0 0;
+      font-family: var(--serif);
+      font-size: clamp(82px, 12.8vw, 205px);
+      font-weight: 400;
+      letter-spacing: -.075em;
+      line-height: .67;
+    }
+    .hero h1 span { display: block; }
+    .hero h1 .ampersand {
+      margin: .16em 0 .05em .78em;
+      color: #e5c69c;
+      font-size: .29em;
+      font-style: italic;
+      letter-spacing: 0;
+    }
+    .hero__bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-top: clamp(46px, 7vw, 95px);
+    }
+    .hero__date { font-family: var(--mono); font-size: 11px; letter-spacing: .23em; text-transform: uppercase; }
+    .hero__note { max-width: 200px; margin: 0; color: rgba(255,250,241,.78); font-size: 12px; line-height: 1.6; }
+    .hero__scroll {
+      position: absolute;
+      right: clamp(28px, 6vw, 100px);
+      bottom: 48px;
+      display: grid;
+      gap: 9px;
+      justify-items: center;
+      color: inherit;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .hero__scroll i { display: block; width: 1px; height: 42px; background: currentColor; animation: linePulse 2.2s ease-in-out infinite; }
+
+    .paper-section { position: relative; padding: clamp(90px, 13vw, 180px) 24px; }
+    .paper-section--cream { background: var(--cream); }
+    .paper-section--sand { background: #ecdfcd; }
+    .section-shell { width: min(1170px, 100%); margin: auto; }
+    .section-label { color: var(--antique); }
+    .section-heading {
+      max-width: 780px;
+      margin: 17px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(53px, 8vw, 124px);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .83;
+    }
+    .section-heading em { color: var(--gold); font-weight: inherit; }
+    .section-copy { max-width: 440px; margin: 34px 0 0 auto; color: var(--muted); font-size: 15px; }
+    .rule { width: min(100%, 95px); height: 1px; margin-top: 30px; background: var(--gold); }
+
+    .countdown-section { overflow: hidden; }
+    .countdown-section::after {
+      position: absolute;
+      right: -125px;
+      bottom: -185px;
+      width: 500px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(178,139,87,.19);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 45px rgba(178,139,87,.045), 0 0 0 92px rgba(178,139,87,.03);
+    }
+    .countdown-layout { position: relative; z-index: 1; display: grid; grid-template-columns: .86fr 1.14fr; gap: clamp(50px, 10vw, 150px); align-items: end; }
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 12px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .countdown__unit { padding: 30px clamp(9px, 1.8vw, 23px) 24px; text-align: center; }
+    .countdown__unit + .countdown__unit { border-left: 1px solid var(--line); }
+    .countdown strong { display: block; color: var(--antique); font-family: var(--serif); font-size: clamp(44px, 6.1vw, 88px); font-weight: 400; letter-spacing: -.07em; line-height: .82; }
+    .countdown small { display: block; margin-top: 15px; color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+
+    .story-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(40px, 8vw, 130px); align-items: start; }
+    .story-intro { padding-top: 9vw; }
+    .story-intro .section-copy { margin-left: 0; }
+    .photo-composition { position: relative; min-height: 710px; padding: 32px 0 45px 11%; }
+    .portrait {
+      position: absolute;
+      display: grid;
+      overflow: hidden;
+      place-items: center;
+      color: rgba(255,250,241,.88);
+      isolation: isolate;
+      background-color: #a48465;
+    }
+    .portrait::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background:
+        radial-gradient(ellipse at 63% 31%, rgba(255,246,222,.55) 0 4%, transparent 4.5%),
+        radial-gradient(ellipse at 50% 37%, rgba(99,67,45,.62) 0 10%, transparent 10.6%),
+        radial-gradient(ellipse at 50% 67%, rgba(66,48,35,.68) 0 22%, transparent 22.6%),
+        linear-gradient(135deg, rgba(243,217,183,.68), rgba(137,98,62,.69));
+      filter: sepia(.22);
+    }
+    .portrait::after {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background: repeating-linear-gradient(105deg, rgba(255,255,255,.03) 0 1px, transparent 1px 7px);
+      mix-blend-mode: soft-light;
+    }
+    .portrait__label { position: relative; padding: 10px 13px; border: 1px solid rgba(255,250,241,.58); font-family: var(--mono); font-size: 9px; letter-spacing: .17em; text-align: center; text-transform: uppercase; }
+    .portrait--main { top: 0; right: 5%; width: min(77%, 420px); height: 585px; border-radius: 210px 210px 0 0; }
+    .portrait--main::before { background: radial-gradient(ellipse at 56% 25%, rgba(255,239,208,.65) 0 6%, transparent 6.5%), radial-gradient(ellipse at 58% 36%, rgba(88,57,38,.69) 0 13%, transparent 13.6%), radial-gradient(ellipse at 57% 65%, rgba(58,40,29,.8) 0 26%, transparent 26.5%), linear-gradient(150deg, #d9c2a2, #78533a); }
+    .portrait--small { bottom: 0; left: 0; width: min(47%, 250px); height: 310px; border: 12px solid var(--cream); }
+    .portrait--small::before { background: radial-gradient(ellipse at 47% 31%, rgba(255,239,208,.53) 0 5%, transparent 5.5%), radial-gradient(ellipse at 49% 43%, rgba(78,55,39,.64) 0 14%, transparent 14.5%), radial-gradient(ellipse at 47% 72%, rgba(64,43,31,.8) 0 29%, transparent 29.5%), linear-gradient(135deg, #d6c1a4, #8c6750); }
+    .photo-composition__frame { position: absolute; top: 26px; right: 0; width: min(80%, 450px); height: 588px; border: 1px solid var(--gold); transform: translate(20px, 20px); }
+    .photo-composition__caption { position: absolute; right: 0; bottom: 0; max-width: 215px; color: var(--antique); font-family: var(--mono); font-size: 10px; letter-spacing: .09em; line-height: 1.65; text-transform: uppercase; }
+
+    .details-head { display: grid; grid-template-columns: .86fr 1.14fr; gap: clamp(40px, 8vw, 130px); align-items: end; }
+    .details-head .section-copy { margin: 0 0 7px; }
+    .details-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 75px;
+      border: 1px solid rgba(127,92,54,.43);
+      background: rgba(255,250,241,.43);
+      box-shadow: 12px 14px 0 rgba(178,139,87,.09);
+    }
+    .details-card::before {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      content: "";
+      background: var(--champagne);
+      transform: translateX(-50%);
+    }
+    .detail { min-height: 265px; padding: clamp(35px, 5vw, 68px); }
+    .detail + .detail { border-left: 1px solid var(--line); }
+    .detail__term { color: var(--antique); font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; }
+    .detail__answer { margin: 20px 0 9px; font-family: var(--serif); font-size: clamp(31px, 4vw, 56px); font-weight: 400; letter-spacing: -.055em; line-height: .94; }
+    .detail__note { max-width: 300px; margin: 0; color: var(--muted); font-size: 13px; }
+
+    .schedule-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(42px, 11vw, 165px); align-items: start; }
+    .schedule-intro { position: sticky; top: 30px; }
+    .schedule-list { border-top: 1px solid var(--line); }
+    .schedule-item { display: grid; grid-template-columns: 78px 1fr auto; gap: 22px; align-items: baseline; padding: 31px 0 28px; border-bottom: 1px solid var(--line); }
+    .schedule-item__number { color: var(--gold); font-family: var(--serif); font-size: 28px; line-height: 1; }
+    .schedule-item__name { font-family: var(--serif); font-size: clamp(28px, 3.3vw, 46px); font-weight: 400; letter-spacing: -.05em; line-height: 1; }
+    .schedule-item__status { color: var(--muted); font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-align: right; text-transform: uppercase; }
+
+    .rsvp-section {
+      position: relative;
+      overflow: hidden;
+      color: var(--cream);
+      background: #38281e;
+    }
+    .rsvp-section::before {
+      position: absolute;
+      top: -31vw;
+      right: -8vw;
+      width: min(75vw, 900px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(239,211,164,.29);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 30px rgba(239,211,164,.03), 0 0 0 80px rgba(239,211,164,.025);
+    }
+    .rsvp-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 10vw; align-items: center; }
+    .rsvp-section .section-label, .rsvp-section .section-heading em { color: #e7bd7f; }
+    .rsvp-section .section-copy { margin-left: 0; color: rgba(255,250,241,.72); }
+    .rsvp-mark { display: grid; width: min(270px, 80%); aspect-ratio: 1; margin: auto; border: 1px solid rgba(255,250,241,.41); border-radius: 50%; place-items: center; }
+    .rsvp-mark__inside { display: grid; width: 74%; aspect-ratio: 1; border: 1px solid rgba(255,250,241,.19); border-radius: 50%; place-items: center; color: #e7bd7f; font-family: var(--serif); font-size: clamp(58px, 7vw, 96px); font-style: italic; }
+    .button {
+      display: inline-flex;
+      gap: 13px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
+      border: 1px solid #e7bd7f;
+      padding: 15px 21px 14px;
+      color: var(--cream);
+      background: transparent;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .14em;
+      line-height: 1;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .25s ease, background .25s ease, transform .25s ease;
+    }
+    .button::after { content: "→"; font-size: 16px; line-height: 0; }
+    .button:hover, .button:focus-visible { color: var(--ink); background: #e7bd7f; transform: translateX(3px); }
+    .rsvp-note { margin-top: 22px; color: rgba(255,250,241,.52); font-size: 11px; }
+
+    .site-footer { display: flex; justify-content: space-between; gap: 24px; padding: 23px clamp(22px, 5vw, 82px); color: #baa589; background: #271b14; font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay { transition-delay: .16s; }
+
+    .modal-backdrop {
+      position: fixed;
+      z-index: 40;
+      inset: 0;
+      display: grid;
+      overflow: auto;
+      padding: 25px;
+      place-items: center;
+      background: rgba(38,27,20,.66);
+      backdrop-filter: blur(8px);
+    }
+    .modal-backdrop[hidden] { display: none; }
+    .modal {
+      position: relative;
+      width: min(620px, 100%);
+      max-height: min(850px, 100%);
+      overflow: auto;
+      border: 1px solid var(--gold);
+      padding: clamp(32px, 6vw, 58px);
+      background: var(--cream);
+      box-shadow: 0 22px 80px rgba(20,13,8,.38);
+    }
+    .modal::before { position: absolute; inset: 14px; border: 1px solid rgba(127,92,54,.18); pointer-events: none; content: ""; }
+    .modal__close { position: absolute; z-index: 1; top: 25px; right: 25px; display: grid; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; color: var(--antique); background: transparent; place-items: center; font-size: 19px; line-height: 1; }
+    .modal__heading { position: relative; margin: 14px 0 0; color: var(--ink); font-family: var(--serif); font-size: clamp(42px, 7vw, 64px); font-weight: 400; letter-spacing: -.06em; line-height: .86; }
+    .modal__copy { position: relative; max-width: 420px; margin: 20px 0 30px; color: var(--muted); font-size: 13px; }
+    .rsvp-form { position: relative; display: grid; gap: 19px; }
+    .field { display: grid; gap: 7px; }
+    .field label { color: var(--antique); font-family: var(--mono); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; }
+    .field input, .field select, .field textarea { width: 100%; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 10px 0; outline: none; color: var(--ink); background: transparent; font-size: 14px; }
+    .field textarea { min-height: 76px; resize: vertical; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--antique); }
+    .modal .button { margin-top: 4px; align-self: start; color: var(--antique); }
+    .modal .button:hover, .modal .button:focus-visible { color: var(--cream); background: var(--antique); }
+    .rsvp-success { position: relative; padding: 34px 0 9px; text-align: center; }
+    .rsvp-success[hidden] { display: none; }
+    .rsvp-success__ring { display: grid; width: 74px; height: 74px; margin: 0 auto 26px; border: 1px solid var(--gold); border-radius: 50%; color: var(--antique); place-items: center; font-family: var(--serif); font-size: 32px; }
+    .rsvp-success h3 { margin: 0; font-family: var(--serif); font-size: 43px; font-weight: 400; letter-spacing: -.06em; line-height: .9; }
+    .rsvp-success p { max-width: 380px; margin: 20px auto 0; color: var(--muted); font-size: 13px; }
+
+    /* Luminous champagne: pearl paper, pale gold light, and relaxed typography. */
+    .site-header { color: var(--antique); }
+    .language-toggle { border-color: var(--line); background: rgba(255,255,255,.4); }
+    .hero {
+      color: var(--antique);
+      background:
+        radial-gradient(ellipse at 74% 25%, #fffefa 0%, rgba(255,254,250,.7) 20%, transparent 53%),
+        radial-gradient(ellipse at 90% 88%, #e9cf94 0%, transparent 48%),
+        linear-gradient(125deg, #fffdf7 3%, #f6e8c9 52%, #fdf8eb 100%);
+    }
+    .hero::before { border-color: rgba(185,147,70,.42); box-shadow: inset 0 0 80px rgba(255,255,255,.5), 0 0 0 18px rgba(255,255,255,.2); }
+    .hero::after, .hero__ring { border-color: rgba(185,147,70,.4); }
+    .hero__ring::before, .hero__ring::after { border-color: rgba(185,147,70,.22); }
+    .hero h1 { font-weight: 400; letter-spacing: -.045em; line-height: .88; color: #99732e; }
+    .hero h1 .ampersand { margin: -.06em 0 -.02em 1.35em; font-size: .35em; color: #bb964c; }
+    .hero__note { color: var(--muted); }
+    .section-heading { font-size: clamp(50px, 7vw, 100px); letter-spacing: -.035em; line-height: 1.04; }
+    .section-heading em { font-weight: 500; }
+    .section-copy { line-height: 1.9; }
+    .paper-section--sand { background: #f8efdC; }
+    .countdown strong { letter-spacing: -.035em; line-height: 1; }
+    .portrait { margin: 0; color: var(--antique); background-color: #f4e5c4; }
+    .portrait--main::before {
+      background: radial-gradient(ellipse at 80% 18%, #fffdf8, transparent 60%), linear-gradient(115deg, #f7edda 8%, #e5c98f 40%, #fff9ec 56%, #eed9ac 100%);
+    }
+    .portrait--small::before {
+      background: radial-gradient(ellipse at 25% 60%, #fffdf8, transparent 58%), linear-gradient(35deg, #ead39e, #fcf5e5 48%, #dec18b);
+    }
+    .portrait__label { border-color: var(--line); background: rgba(255,253,246,.7); }
+    .detail__answer { letter-spacing: -.025em; line-height: 1.18; }
+    .schedule-item__name { letter-spacing: -.025em; line-height: 1.2; }
+    .rsvp-section { color: var(--ink); background: linear-gradient(115deg, #faf2df, #f0dbac 60%, #fff9ed); }
+    .rsvp-section::before { border-color: rgba(185,147,70,.3); }
+    .rsvp-section .section-label, .rsvp-section .section-heading em { color: var(--antique); }
+    .rsvp-section .section-copy, .rsvp-note { color: var(--muted); }
+    .rsvp-mark, .rsvp-mark__inside { border-color: var(--line); }
+    .rsvp-mark__inside { color: var(--gold); font-size: clamp(40px, 5vw, 60px); line-height: .9; }
+    .button { color: var(--antique); border-color: #bd984d; background: rgba(255,254,250,.4); }
+    .button:hover, .button:focus-visible { background: #ead09a; }
+    .site-footer { color: var(--antique); background: #f8efdb; border-top: 1px solid var(--line); }
+    .modal__heading, .rsvp-success h3 { letter-spacing: -.025em; line-height: 1.08; }
+    html[lang="zh-Hant"] .section-heading { font-size: clamp(34px, 5.2vw, 72px); letter-spacing: .025em; line-height: 1.45; }
+    html[lang="zh-Hant"] .section-heading em { font-style: normal; }
+    html[lang="zh-Hant"] .detail__answer { font-size: clamp(25px, 3vw, 40px); line-height: 1.6; }
+    html[lang="zh-Hant"] .schedule-item__name { font-size: clamp(24px, 2.8vw, 36px); line-height: 1.5; }
+    html[lang="zh-Hant"] .modal__heading { font-size: clamp(32px, 5vw, 46px); line-height: 1.45; }
+    @keyframes linePulse { 0%, 100% { transform: scaleY(.72); transform-origin: top; opacity: .45; } 50% { transform: scaleY(1); transform-origin: top; opacity: 1; } }
+    @media (max-width: 760px) {
+      .site-header { grid-template-columns: 1fr auto; padding-top: 22px; }
+      .nav { display: none; }
+      .hero { min-height: 680px; }
+      .hero::before { top: 19%; right: -48vw; width: 130vw; height: 137vw; }
+      .hero__content { padding: 130px 38px 110px; }
+      .hero h1 { font-size: clamp(76px, 21vw, 132px); line-height: .88; }
+      .hero__note { display: none; }
+      .hero__scroll { right: 31px; bottom: 32px; }
+      .paper-section { padding-right: 21px; padding-left: 21px; }
+      .countdown-layout, .story-layout, .details-head, .schedule-layout, .rsvp-grid { grid-template-columns: 1fr; gap: 50px; }
+      .section-copy { margin-left: 0; }
+      .countdown__unit { padding: 24px 4px 19px; }
+      .countdown small { font-size: 8px; letter-spacing: .06em; }
+      .story-intro { padding-top: 0; }
+      .photo-composition { min-height: 530px; padding-left: 5%; }
+      .portrait--main { right: 4%; width: 79%; height: 435px; }
+      .portrait--small { width: 47%; height: 220px; border-width: 8px; }
+      .photo-composition__frame { top: 18px; width: 81%; height: 438px; transform: translate(11px, 11px); }
+      .photo-composition__caption { max-width: 142px; font-size: 8px; }
+      .details-card { grid-template-columns: 1fr; margin-top: 54px; }
+      .detail { min-height: 0; padding: 46px 30px; }
+      .detail + .detail { border-top: 1px solid var(--line); border-left: 0; }
+      .schedule-intro { position: static; }
+      .schedule-item { grid-template-columns: 43px 1fr; gap: 13px; }
+      .schedule-item__status { grid-column: 2; text-align: left; }
+      .rsvp-mark { margin: 0; }
+      .site-footer { display: block; padding-top: 24px; padding-bottom: 24px; line-height: 1.8; }
+      .site-footer span { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#welcome" data-i18n="skip">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Koey and Ringo">K + R</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#story" data-i18n="navStory">Story</a>
+      <a href="#details" data-i18n="navDetails">Details</a>
+      <a href="#rsvp" data-i18n="navRsvp">RSVP</a>
+    </nav>
+    <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">中文</button>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__ring" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="hero__eyebrow" data-i18n="heroKicker">A celebration of love</div>
+        <h1 id="heroTitle"><span>Koey</span><span class="ampersand">&amp;</span><span>Ringo</span></h1>
+        <div class="hero__bottom">
+          <div class="hero__date" data-i18n="heroDate">21 · 03 · 2027</div>
+          <p class="hero__note" data-i18n="heroNote">A day made for the beginning of forever.</p>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#welcome"><span data-i18n="discover">Discover</span><i aria-hidden="true"></i></a>
+    </section>
+
+    <section class="paper-section paper-section--cream countdown-section" id="welcome" aria-labelledby="countdownTitle">
+      <div class="section-shell countdown-layout">
+        <div class="reveal">
+          <div class="eyebrow section-label" data-i18n="countKicker">Save the date</div>
+          <h2 class="section-heading" id="countdownTitle" data-i18n="countTitle">The <em>countdown</em><br>begins.</h2>
+          <p class="section-copy" data-i18n="countCopy">Until the day we begin our next beautiful chapter together.</p>
+          <div class="rule" aria-hidden="true"></div>
+        </div>
+        <div class="countdown reveal reveal-delay" aria-label="Wedding countdown">
+          <div class="countdown__unit"><strong id="days">--</strong><small data-i18n="days">Days</small></div>
+          <div class="countdown__unit"><strong id="hours">--</strong><small data-i18n="hours">Hours</small></div>
+          <div class="countdown__unit"><strong id="minutes">--</strong><small data-i18n="minutes">Minutes</small></div>
+          <div class="countdown__unit"><strong id="seconds">--</strong><small data-i18n="seconds">Seconds</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section" id="story" aria-labelledby="storyTitle">
+      <div class="section-shell story-layout">
+        <div class="story-intro reveal">
+          <div class="eyebrow section-label" data-i18n="storyKicker">Chapter one</div>
+          <h2 class="section-heading" id="storyTitle" data-i18n="storyTitle">Our <em>story</em>,<br>still unfolding.</h2>
+          <p class="section-copy" data-i18n="storyCopy">Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.</p>
+          <div class="rule" aria-hidden="true"></div>
+        </div>
+        <div class="photo-composition reveal reveal-delay" aria-label="Photo placeholders">
+          <div class="photo-composition__frame" aria-hidden="true"></div>
+          <figure class="portrait portrait--main"><figcaption class="portrait__label" data-i18n="photoMain">A photo, to come</figcaption></figure>
+          <figure class="portrait portrait--small"><figcaption class="portrait__label" data-i18n="photoSmall">Your moment</figcaption></figure>
+          <p class="photo-composition__caption" data-i18n="photoCaption">A place reserved for the moments that tell our story.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section paper-section--sand" id="details" aria-labelledby="detailsTitle">
+      <div class="section-shell">
+        <div class="details-head reveal">
+          <div>
+            <div class="eyebrow section-label" data-i18n="detailsKicker">Mark the day</div>
+            <h2 class="section-heading" id="detailsTitle" data-i18n="detailsTitle">Wedding <em>details</em></h2>
+          </div>
+          <p class="section-copy" data-i18n="detailsCopy">We will share the time and venue as soon as they are confirmed. For now, please keep this day close.</p>
+        </div>
+        <div class="details-card reveal reveal-delay">
+          <article class="detail">
+            <div class="detail__term" data-i18n="when">When</div>
+            <h3 class="detail__answer" data-i18n="fullDate">Sunday<br>21 March 2027</h3>
+            <p class="detail__note" data-i18n="timePending">Time to be announced</p>
+          </article>
+          <article class="detail">
+            <div class="detail__term" data-i18n="where">Where</div>
+            <h3 class="detail__answer" data-i18n="venuePending">Venue to<br>be announced</h3>
+            <p class="detail__note" data-i18n="locationPending">Location details coming soon</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section paper-section--cream" id="schedule" aria-labelledby="scheduleTitle">
+      <div class="section-shell schedule-layout">
+        <div class="schedule-intro reveal">
+          <div class="eyebrow section-label" data-i18n="scheduleKicker">A day to remember</div>
+          <h2 class="section-heading" id="scheduleTitle" data-i18n="scheduleTitle">The <em>celebration</em></h2>
+          <p class="section-copy" data-i18n="scheduleCopy">The wedding-day schedule will be shared here once it is confirmed.</p>
+        </div>
+        <div class="schedule-list reveal reveal-delay" aria-label="Wedding schedule">
+          <div class="schedule-item"><span class="schedule-item__number">01</span><span class="schedule-item__name" data-i18n="event1">Ceremony</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
+          <div class="schedule-item"><span class="schedule-item__number">02</span><span class="schedule-item__name" data-i18n="event2">Photos &amp; celebration</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
+          <div class="schedule-item"><span class="schedule-item__number">03</span><span class="schedule-item__name" data-i18n="event3">Reception</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section rsvp-section" id="rsvp" aria-labelledby="rsvpTitle">
+      <div class="section-shell rsvp-grid">
+        <div class="reveal">
+          <div class="eyebrow section-label" data-i18n="rsvpKicker">With love</div>
+          <h2 class="section-heading" id="rsvpTitle" data-i18n="rsvpTitle">Will you <em>join</em><br>us?</h2>
+          <p class="section-copy" data-i18n="rsvpCopy">We look forward to celebrating with you. RSVP is a preview at the moment, and no responses will be collected.</p>
+          <button class="button" id="openRsvp" type="button" data-i18n="rsvpButton">Preview RSVP</button>
+          <p class="rsvp-note" data-i18n="rsvpNote">Demo only — no information is sent or saved.</p>
+        </div>
+        <div class="rsvp-mark reveal reveal-delay" aria-hidden="true"><div class="rsvp-mark__inside">K<br>&amp;<br>R</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>Koey &amp; Ringo · 21.03.2027</span><span data-i18n="footer">Made with love · See you soon</span></footer>
+
+  <div class="modal-backdrop" id="rsvpModal" hidden aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal__close" id="closeRsvp" type="button" aria-label="Close RSVP form">×</button>
+      <div id="rsvpFormContent">
+        <div class="eyebrow section-label" data-i18n="modalKicker">RSVP preview</div>
+        <h2 class="modal__heading" id="modalTitle" data-i18n="modalTitle">A little<br>reply card.</h2>
+        <p class="modal__copy" data-i18n="modalCopy">This is a working demo of the RSVP form. It will not send or save any information.</p>
+        <form class="rsvp-form" id="rsvpForm">
+          <div class="field"><label for="guestName" data-i18n="nameLabel">Your name</label><input id="guestName" name="guestName" required data-i18n-placeholder="namePlaceholder" placeholder="Name"></div>
+          <div class="field"><label for="attendance" data-i18n="attendanceLabel">Will you attend?</label><select id="attendance" name="attendance" required><option value="" data-i18n="attendanceChoose">Please select</option><option value="yes" data-i18n="attendanceYes">Joyfully accepts</option><option value="no" data-i18n="attendanceNo">Regretfully declines</option></select></div>
+          <div class="field"><label for="guestCount" data-i18n="guestCountLabel">Number of guests</label><select id="guestCount" name="guestCount" required><option value="" data-i18n="guestCountChoose">Please select</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div>
+          <div class="field"><label for="message" data-i18n="messageLabel">A note for the couple</label><textarea id="message" name="message" data-i18n-placeholder="messagePlaceholder" placeholder="Optional"></textarea></div>
+          <button class="button" type="submit" data-i18n="submitDemo">Submit demo reply</button>
+        </form>
+      </div>
+      <div class="rsvp-success" id="rsvpSuccess" hidden>
+        <div class="rsvp-success__ring">♡</div>
+        <h3 data-i18n="successTitle">Thank you.</h3>
+        <p data-i18n="successCopy">This was only a preview, so no reply has been sent or stored.</p>
+        <button class="button" id="successClose" type="button" data-i18n="successClose">Return to website</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const copy = {
+      en: {
+        pageTitle: 'Koey & Ringo — 21 March 2027', skip: 'Skip to content', navStory: 'Story', navDetails: 'Details', navRsvp: 'RSVP',
+        heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'A day made for the beginning of forever.', discover: 'Discover',
+        countKicker: 'Save the date', countTitle: 'The <em>countdown</em><br>begins.', countCopy: 'Until the day we begin our next beautiful chapter together.', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
+        storyKicker: 'Chapter one', storyTitle: 'Our <em>story</em>,<br>still unfolding.', storyCopy: 'Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.', photoMain: 'A photo, to come', photoSmall: 'Your moment', photoCaption: 'A place reserved for the moments that tell our story.',
+        detailsKicker: 'Mark the day', detailsTitle: 'Wedding <em>details</em>', detailsCopy: 'We will share the time and venue as soon as they are confirmed. For now, please keep this day close.', when: 'When', fullDate: 'Sunday<br>21 March 2027', timePending: 'Time to be announced', where: 'Where', venuePending: 'Venue to<br>be announced', locationPending: 'Location details coming soon',
+        scheduleKicker: 'A day to remember', scheduleTitle: 'The <em>celebration</em>', scheduleCopy: 'The wedding-day schedule will be shared here once it is confirmed.', event1: 'Ceremony', event2: 'Photos &amp; celebration', event3: 'Reception', tbc: 'To be confirmed',
+        rsvpKicker: 'With love', rsvpTitle: 'Will you <em>join</em><br>us?', rsvpCopy: 'We look forward to celebrating with you. RSVP is a preview at the moment, and no responses will be collected.', rsvpButton: 'Preview RSVP', rsvpNote: 'Demo only — no information is sent or saved.', footer: 'Made with love · See you soon',
+        modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
+      },
+      zh: {
+        pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navRsvp: '出席回覆',
+        heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '屬於我們的永恆，從這一天開始。', discover: '向下探索',
+        countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
+        storyKicker: '第一章', storyTitle: '我們的<em>故事</em>，<br>仍在續寫。', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，預留一個位置。',
+        detailsKicker: '敬請預留這天', detailsTitle: '婚禮<em>資訊</em>', detailsCopy: '婚禮時間及場地確定後會在此更新；現在，先請你為我們預留這個特別日子。', when: '日期', fullDate: '2027年3月21日<br>星期日', timePending: '時間稍後公布', where: '地點', venuePending: '婚禮場地<br>稍後公布', locationPending: '詳細地址即將更新',
+        scheduleKicker: '值得珍藏的一天', scheduleTitle: '婚禮<em>流程</em>', scheduleCopy: '婚禮當日流程確認後將在此公布。', event1: '證婚儀式', event2: '合照及慶祝', event3: '婚宴', tbc: '時間待定',
+        rsvpKicker: '滿懷期待', rsvpTitle: '你會與我們<em>同行</em><br>嗎？', rsvpCopy: '期待與你一同慶祝。RSVP 現為示範版本，尚未收集任何回覆。', rsvpButton: '預覽 RSVP', rsvpNote: '示範版本：資料不會傳送或儲存。', footer: '以愛製作 · 期待與你相見',
+        modalKicker: 'RSVP 示範', modalTitle: '一張小小的<br>回覆卡。', modalCopy: '這是可互動的 RSVP 表單示範，不會傳送或儲存任何資料。', nameLabel: '你的姓名', namePlaceholder: '姓名', attendanceLabel: '你會出席嗎？', attendanceChoose: '請選擇', attendanceYes: '欣然接受邀請', attendanceNo: '抱歉未能出席', guestCountLabel: '出席人數', guestCountChoose: '請選擇', messageLabel: '給新人的祝福', messagePlaceholder: '選填', submitDemo: '提交示範回覆', successTitle: '謝謝你。', successCopy: '這只是一個預覽，沒有任何回覆被傳送或儲存。', successClose: '返回網站', closeRsvp: '關閉 RSVP 表單'
+      }
+    };
+
+    let language = 'en';
+    const languageToggle = document.getElementById('languageToggle');
+    const modal = document.getElementById('rsvpModal');
+    const openRsvp = document.getElementById('openRsvp');
+    const closeRsvp = document.getElementById('closeRsvp');
+    const successClose = document.getElementById('successClose');
+    const formContent = document.getElementById('rsvpFormContent');
+    const success = document.getElementById('rsvpSuccess');
+    let lastFocusedElement;
+
+    function setLanguage(nextLanguage) {
+      language = nextLanguage;
+      const dictionary = copy[language];
+      document.documentElement.lang = language === 'zh' ? 'zh-Hant' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const value = dictionary[element.dataset.i18n];
+        if (value !== undefined) element.innerHTML = value;
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
+        const value = dictionary[element.dataset.i18nPlaceholder];
+        if (value !== undefined) element.placeholder = value;
+      });
+      languageToggle.textContent = language === 'en' ? '中文' : 'EN';
+      languageToggle.setAttribute('aria-label', language === 'en' ? '切換至中文' : 'Switch to English');
+      closeRsvp.setAttribute('aria-label', dictionary.closeRsvp);
+    }
+    languageToggle.addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
+
+    function updateCountdown() {
+      const weddingDate = new Date('2027-03-21T00:00:00+11:00').getTime();
+      const seconds = Math.max(0, Math.floor((weddingDate - Date.now()) / 1000));
+      const parts = {
+        days: Math.floor(seconds / 86400),
+        hours: Math.floor(seconds / 3600) % 24,
+        minutes: Math.floor(seconds / 60) % 60,
+        seconds: seconds % 60
+      };
+      Object.entries(parts).forEach(([id, value]) => {
+        document.getElementById(id).textContent = String(value).padStart(2, '0');
+      });
+    }
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+
+    function showModal() {
+      lastFocusedElement = document.activeElement;
+      document.body.style.overflow = 'hidden';
+      modal.hidden = false;
+      modal.setAttribute('aria-hidden', 'false');
+      formContent.hidden = false;
+      success.hidden = true;
+      window.setTimeout(() => document.getElementById('guestName').focus(), 20);
+    }
+    function hideModal() {
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocusedElement) lastFocusedElement.focus();
+    }
+    openRsvp.addEventListener('click', showModal);
+    closeRsvp.addEventListener('click', hideModal);
+    successClose.addEventListener('click', hideModal);
+    modal.addEventListener('click', (event) => { if (event.target === modal) hideModal(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !modal.hidden) hideModal(); });
+    document.getElementById('rsvpForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!event.currentTarget.reportValidity()) return;
+      formContent.hidden = true;
+      success.hidden = false;
+      successClose.focus();
+    });
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
