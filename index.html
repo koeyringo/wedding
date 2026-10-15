@@ -534,31 +534,44 @@
       .reveal { opacity: 1; transform: none; }
     }
 
-    /* Romantic Calligraphy × Luxury Editorial */
+        /* =========================================
+       KOey & Ringo — Wedding Typography
+       ========================================= */
 
-    /* English hero title */
-    .hero h1 {
+    /* All Chinese text: LXGW WenKai TC */
+    html[lang="zh-Hant"] body,
+    html[lang="zh-Hant"] button,
+    html[lang="zh-Hant"] input,
+    html[lang="zh-Hant"] select,
+    html[lang="zh-Hant"] textarea {
+      font-family: var(--chinese-art);
+    }
+
+    /* Chinese headings and labels */
+    html[lang="zh-Hant"] .section-heading,
+    html[lang="zh-Hant"] .section-label,
+    html[lang="zh-Hant"] .section-copy,
+    html[lang="zh-Hant"] .hero__eyebrow,
+    html[lang="zh-Hant"] .hero__date,
+    html[lang="zh-Hant"] .hero__note,
+    html[lang="zh-Hant"] .nav a,
+    html[lang="zh-Hant"] .detail__term,
+    html[lang="zh-Hant"] .detail__answer,
+    html[lang="zh-Hant"] .schedule-item__name,
+    html[lang="zh-Hant"] .modal__heading,
+    html[lang="zh-Hant"] .field label,
+    html[lang="zh-Hant"] .countdown small {
+      font-family: var(--chinese-art);
+    }
+
+    /* Koey & Ringo: Great Vibes in both languages */
+    .hero h1,
+    html[lang="zh-Hant"] .hero h1 {
       font-family: var(--script);
       font-size: clamp(76px, 11vw, 165px);
       font-weight: 400;
       letter-spacing: 0;
       line-height: 1.15;
-    }
-
-    /* Chinese hero title */
-    html[lang="zh-Hant"] .hero h1 {
-      font-family: var(--chinese-art);
-      font-size: clamp(48px, 7vw, 100px);
-      letter-spacing: .04em;
-      line-height: 1.35;
-    }
-
-    /* Chinese section headings */
-    html[lang="zh-Hant"] .section-heading,
-    html[lang="zh-Hant"] .modal__heading {
-      font-family: 'Noto Serif TC', serif;
-      letter-spacing: .02em;
-      line-height: 1.25;
     }
 
   </style>
