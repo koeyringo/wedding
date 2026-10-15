@@ -601,7 +601,16 @@
     html[lang="zh-Hant"] #story .section-heading {
       max-width: 100%;
       width: 100%;
+      font-size: clamp(36px, 5.5vw, 72px);
+      letter-spacing: -.04em;
+      line-height: 1.35;
       white-space: normal;
+    }
+    
+    /* Keep each line of the Chinese story title together */
+    html[lang="zh-Hant"] #story .story-title-line {
+      display: block;
+      white-space: nowrap;
     }
     
   </style>
@@ -766,7 +775,7 @@
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navRsvp: '出席回覆',
         heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '屬於我們的永恆，從這一天開始。', discover: '向下探索',
         countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
-        storyKicker: '第一章', storyTitle: '我們的<em>故事</em>，<br>仍在續寫。', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，預留一個位置。',
+        storyKicker: '第一章', storyTitle: '<span class="story-title-line">我們的<em>故事</em>，</span><span class="story-title-line">仍在續寫。</span>', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，預留一個位置。',
         detailsKicker: '敬請預留這天', detailsTitle: '婚禮<em>資訊</em>', detailsCopy: '婚禮時間及場地確定後會在此更新；現在，先請你為我們預留這個特別日子。', when: '日期', fullDate: '2027年3月21日<br>星期日', timePending: '時間稍後公布', where: '地點', venuePending: '婚禮場地<br>稍後公布', locationPending: '詳細地址即將更新',
         scheduleKicker: '值得珍藏的一天', scheduleTitle: '婚禮<em>流程</em>', scheduleCopy: '婚禮當日流程確認後將在此公布。', event1: '證婚儀式', event2: '合照及慶祝', event3: '婚宴', tbc: '時間待定',
         rsvpKicker: '滿懷期待', rsvpTitle: '你會與我們<em>同行</em><br>嗎？', rsvpCopy: '期待與你一同慶祝。RSVP 現為示範版本，尚未收集任何回覆。', rsvpButton: '預覽 RSVP', rsvpNote: '示範版本：資料不會傳送或儲存。', footer: '以愛製作 · 期待與你相見',
