@@ -218,7 +218,7 @@
       align-items: flex-end;
       margin-top: clamp(46px, 7vw, 95px);
     }
-    .hero__date { font-family: var(--mono); font-size: 11px; letter-spacing: .23em; text-transform: uppercase; }
+    .hero__date { font-family: var(--mono); font-size: clamp(18px, 1.8vw, 26px); letter-spacing: .23em; text-transform: uppercase; }
     .hero__note { max-width: 200px; margin: 0; color: rgba(255,250,241,.78); font-size: 12px; line-height: 1.6; }
     .hero__scroll {
       position: absolute;
@@ -617,6 +617,60 @@
       display: block;
       white-space: nowrap;
     }
+
+        /* Wedding Schedule — Champagne Gold Editorial */
+
+    .schedule-item {
+      grid-template-columns: 65px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 35px 0;
+    }
+
+    .schedule-item__content {
+      min-width: 0;
+    }
+
+    .schedule-item__time {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.5vw, 36px);
+      letter-spacing: .03em;
+    }
+
+    .schedule-item__name {
+      display: block;
+      margin: 0;
+    }
+
+    .schedule-item__description {
+      max-width: 540px;
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    html[lang="zh-Hant"] .schedule-item__description {
+      font-family: var(--chinese-art);
+    }
+
+    @media (max-width: 767px) {
+      .schedule-item {
+        grid-template-columns: 43px 1fr;
+        gap: 13px;
+      }
+
+      .schedule-item__time {
+        font-size: 25px;
+      }
+
+      .schedule-item__description {
+        font-size: 13px;
+      }
+    }
     
   </style>
 
@@ -717,10 +771,41 @@
           <p class="section-copy" data-i18n="scheduleCopy">The wedding-day schedule will be shared here once it is confirmed.</p>
         </div>
         <div class="schedule-list reveal reveal-delay" aria-label="Wedding schedule">
-          <div class="schedule-item"><span class="schedule-item__number">01</span><span class="schedule-item__name" data-i18n="event1">Ceremony</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
-          <div class="schedule-item"><span class="schedule-item__number">02</span><span class="schedule-item__name" data-i18n="event2">Photos &amp; celebration</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
-          <div class="schedule-item"><span class="schedule-item__number">03</span><span class="schedule-item__name" data-i18n="event3">Reception</span><span class="schedule-item__status" data-i18n="tbc">To be confirmed</span></div>
-        </div>
+          <div class="schedule-item">
+  <span class="schedule-item__number">01</span>
+
+  <div class="schedule-item__content">
+    <span class="schedule-item__time">10:00 AM</span>
+    <h3 class="schedule-item__name" data-i18n="event1">Guest Arrival</h3>
+    <p class="schedule-item__description" data-i18n="eventDesc1">
+      Come a little early and make yourself at home.
+    </p>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <span class="schedule-item__number">02</span>
+
+  <div class="schedule-item__content">
+    <span class="schedule-item__time">11:00 AM</span>
+    <h3 class="schedule-item__name" data-i18n="event2">The Ceremony</h3>
+    <p class="schedule-item__description" data-i18n="eventDesc2">
+      Surrounded by nature, we'll exchange our vows and promise a lifetime together.
+    </p>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <span class="schedule-item__number">03</span>
+
+  <div class="schedule-item__content">
+    <span class="schedule-item__time">12:30 PM</span>
+    <h3 class="schedule-item__name" data-i18n="event3">Wedding Luncheon</h3>
+    <p class="schedule-item__description" data-i18n="eventDesc3">
+      Love is best celebrated together.
+    </p>
+  </div>
+</div>        </div>
       </div>
     </section>
 
@@ -772,7 +857,16 @@
         countKicker: 'Save the date', countTitle: 'The <em>countdown</em><br>begins.', countCopy: 'Until the day we begin our next beautiful chapter together.', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
         storyKicker: 'Chapter one', storyTitle: 'Our <em>story</em>,<br>still unfolding.', storyCopy: 'Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.', photoMain: 'A photo, to come', photoSmall: 'Your moment', photoCaption: 'A place reserved for the moments that tell our story.',
         detailsKicker: 'Mark the day', detailsTitle: 'Wedding <em>details</em>', detailsCopy: 'We will share the time and venue as soon as they are confirmed. For now, please keep this day close.', when: 'When', fullDate: 'Sunday<br>21 March 2027', timePending: 'Time to be announced', where: 'Where', venuePending: 'Venue to<br>be announced', locationPending: 'Location details coming soon',
-        scheduleKicker: 'A day to remember', scheduleTitle: 'The <em>celebration</em>', scheduleCopy: 'The wedding-day schedule will be shared here once it is confirmed.', event1: 'Ceremony', event2: 'Photos &amp; celebration', event3: 'Reception', tbc: 'To be confirmed',
+        scheduleKicker: 'A Day to Remember',
+scheduleTitle: 'Wedding <em>Schedule</em>',
+scheduleCopy: 'We cannot wait to share this special day with you.',
+event1: 'Guest Arrival',
+event2: 'The Ceremony',
+event3: 'Wedding Luncheon',
+eventDesc1: 'Come a little early and make yourself at home. Enjoy some refreshments, catch up with loved ones, and capture a few beautiful moments before the celebration begins.',
+eventDesc2: "Surrounded by nature, we'll exchange our vows and promise a lifetime together. We would love for you to be there to witness this special moment.",
+eventDesc3: 'Love is best celebrated together. Join us for a delightful lunch filled with good food, laughter, and cherished memories.',
+tbc: 'Time to be announced',
         rsvpKicker: 'With love', rsvpTitle: 'Will you <em>join</em><br>us?', rsvpCopy: 'We look forward to celebrating with you. RSVP is a preview at the moment, and no responses will be collected.', rsvpButton: 'Preview RSVP', rsvpNote: 'Demo only — no information is sent or saved.', footer: 'Made with love · See you soon',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
@@ -782,7 +876,16 @@
         countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
         storyKicker: '第一章', storyTitle: '<span class="story-title-line">我們的<em>故事</em>，</span><span class="story-title-line">仍在續寫。</span>', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，預留一個位置。',
         detailsKicker: '敬請預留這天', detailsTitle: '婚禮<em>資訊</em>', detailsCopy: '婚禮時間及場地確定後會在此更新；現在，先請你為我們預留這個特別日子。', when: '日期', fullDate: '2027年3月21日<br>星期日', timePending: '時間稍後公布', where: '地點', venuePending: '婚禮場地<br>稍後公布', locationPending: '詳細地址即將更新',
-        scheduleKicker: '值得珍藏的一天', scheduleTitle: '婚禮<em>流程</em>', scheduleCopy: '婚禮當日流程確認後將在此公布。', event1: '證婚儀式', event2: '合照及慶祝', event3: '婚宴', tbc: '時間待定',
+        scheduleKicker: '值得珍藏的一天',
+scheduleTitle: '婚禮<em>流程</em>',
+scheduleCopy: '期待與你一同分享這個充滿愛與喜悅的日子。',
+event1: '賓客簽到',
+event2: '愛的誓約',
+event3: '婚禮午宴',
+eventDesc1: '在婚禮開始之前，邀請你先來坐坐。享用小食與飲品，與親友相聚，留下屬於這一天的美好瞬間。',
+eventDesc2: '在微風與綠意之間，我們將交換誓言，許下一生相伴的承諾。期待你在場，見證我們的重要時刻。',
+eventDesc3: '幸福值得一起分享。邀請你與我們共進午餐，在美食、歡笑與祝福之中，延續這一天的喜悅。',
+tbc: '時間待定',
         rsvpKicker: '滿懷期待', rsvpTitle: '你會與我們<em>同行</em><br>嗎？', rsvpCopy: '期待與你一同慶祝。RSVP 現為示範版本，尚未收集任何回覆。', rsvpButton: '預覽 RSVP', rsvpNote: '示範版本：資料不會傳送或儲存。', footer: '以愛製作 · 期待與你相見',
         modalKicker: 'RSVP 示範', modalTitle: '一張小小的<br>回覆卡。', modalCopy: '這是可互動的 RSVP 表單示範，不會傳送或儲存任何資料。', nameLabel: '你的姓名', namePlaceholder: '姓名', attendanceLabel: '你會出席嗎？', attendanceChoose: '請選擇', attendanceYes: '欣然接受邀請', attendanceNo: '抱歉未能出席', guestCountLabel: '出席人數', guestCountChoose: '請選擇', messageLabel: '給新人的祝福', messagePlaceholder: '選填', submitDemo: '提交示範回覆', successTitle: '謝謝你。', successCopy: '這只是一個預覽，沒有任何回覆被傳送或儲存。', successClose: '返回網站', closeRsvp: '關閉 RSVP 表單'
       }
