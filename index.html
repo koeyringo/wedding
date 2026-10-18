@@ -1210,17 +1210,14 @@ tbc: '時間待定',
     let language = 'zh';
     const languageToggle = document.getElementById('languageToggle');
     const rsvpIframe = document.getElementById('rsvpIframe');
-    const rsvpBaseUrl = 'https://script.google.com/macros/s/AKfycbwWUKH1-dhRtCXwKJ6QNmIzQKKHJKZK-_QrwDK92TjW1b6UePbKR-t6a97pV1mUgQ/exec';
+    // The iframe src is the single source of truth for the Apps Script URL.
+    // This also works when the user replaced only the URL in the iframe tag.
     function setRsvpLanguage() {
-      if (rsvpBaseUrl.startsWith('https://script.google.com/macros/s/')) {
-        const next = rsvpBaseUrl + '?lang=' + language;
-        // Reload only when language actually changes; do not discard an in-progress RSVP.
-        if (rsvpIframe.dataset.language !== language) {
-          rsvpIframe.src = next;
-          rsvpIframe.dataset.language = language;
-        }
+      if (rsvpIframe && rsvpIframe.contentWindow) {
+        rsvpIframe.contentWindow.postMessage({type:'KR_RSVP_LANG', lang:language}, '*');
       }
     }
+    rsvpIframe.addEventListener('load', setRsvpLanguage);
     window.addEventListener('message', (event) => {
       if (event.source !== rsvpIframe.contentWindow) return;
       if (!/^https:\/\/[a-z0-9.-]*googleusercontent\.com$/.test(event.origin) &&
