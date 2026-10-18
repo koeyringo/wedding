@@ -871,7 +871,7 @@ html[lang="zh-Hant"] .transport-map-note {
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <a class="skip-link" href="#welcome" data-i18n="skip">Skip to content</a>
+  <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Koey and Ringo">K · R</a>
     <nav class="nav" aria-label="Primary navigation">
@@ -891,29 +891,18 @@ html[lang="zh-Hant"] .transport-map-note {
       <div class="hero__content">
         <div class="hero__eyebrow" data-i18n="heroKicker">A celebration of love</div>
         <h1 id="heroTitle"><span>Koey</span><span class="ampersand">&amp;</span><span>Ringo</span></h1>
+        <div class="countdown reveal reveal-delay" aria-label="Wedding countdown">
+  <div class="countdown__unit"><strong id="days">—</strong><small data-i18n="days">Days</small></div>
+  <div class="countdown__unit"><strong id="hours">—</strong><small data-i18n="hours">Hours</small></div>
+  <div class="countdown__unit"><strong id="minutes">—</strong><small data-i18n="minutes">Minutes</small></div>
+  <div class="countdown__unit"><strong id="seconds">—</strong><small data-i18n="seconds">Seconds</small></div>
+</div>
         <div class="hero__bottom">
           <div class="hero__date" data-i18n="heroDate">21 · 03 · 2027</div>
           <p class="hero__note" data-i18n="heroNote">A day made for the beginning of forever.</p>
         </div>
       </div>
-      <a class="hero__scroll" href="#welcome"><span data-i18n="discover">Discover</span><i aria-hidden="true"></i></a>
-    </section>
-
-    <section class="paper-section paper-section--cream countdown-section" id="welcome" aria-labelledby="countdownTitle">
-      <div class="section-shell countdown-layout">
-        <div class="reveal">
-          <div class="eyebrow section-label" data-i18n="countKicker">Save the date</div>
-          <h2 class="section-heading" id="countdownTitle" data-i18n="countTitle">The <em>countdown</em><br>begins.</h2>
-          <p class="section-copy" data-i18n="countCopy">Until the day we begin our next beautiful chapter together.</p>
-          <div class="rule" aria-hidden="true"></div>
-        </div>
-        <div class="countdown reveal reveal-delay" aria-label="Wedding countdown">
-          <div class="countdown__unit"><strong id="days">--</strong><small data-i18n="days">Days</small></div>
-          <div class="countdown__unit"><strong id="hours">--</strong><small data-i18n="hours">Hours</small></div>
-          <div class="countdown__unit"><strong id="minutes">--</strong><small data-i18n="minutes">Minutes</small></div>
-          <div class="countdown__unit"><strong id="seconds">--</strong><small data-i18n="seconds">Seconds</small></div>
-        </div>
-      </div>
+      <a class="hero__scroll" href="#story"><span data-i18n="discover">Discover</span><i aria-hidden="true"></i></a>
     </section>
 
     <section class="paper-section" id="story" aria-labelledby="storyTitle">
@@ -1129,7 +1118,7 @@ html[lang="zh-Hant"] .transport-map-note {
     const copy = {
       en: {
         pageTitle: 'Koey & Ringo — 21 March 2027', skip: 'Skip to content', navStory: 'Story', navDetails: 'Details', navSchedule: 'Wedding Schedule', navTransport: 'Getting Here', navRsvp: 'RSVP',
-        heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'A day made for the beginning of forever.', discover: 'Discover',
+        heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'Until the day we begin our next beautiful chapter together.', discover: 'Discover',
         countKicker: 'Save the date', countTitle: 'The <em>countdown</em><br>begins.', countCopy: 'Until the day we begin our next beautiful chapter together.', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
         storyKicker: 'Chapter one', storyTitle: 'Our <em>story</em>,<br>still unfolding.', storyCopy: 'Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.', photoMain: 'A photo, to come', photoSmall: 'Your moment', photoCaption: 'A place reserved for the moments that tell our story.',
         detailsKicker: 'Mark the day',
@@ -1168,7 +1157,7 @@ tbc: 'Time to be announced',
       },
       zh: {
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navSchedule: '婚禮流程', navTransport: '交通指南', navRsvp: '出席回覆',
-        heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '屬於我們的永恆，從這一天開始。', discover: '向下探索',
+        heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '距離我們一起展開人生新篇章的日子。', discover: '向下探索',
         countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
         storyKicker: '第一章', storyTitle: '<span class="story-title-line">我們的<em>故事</em>，</span><span class="story-title-line">仍在續寫。</span>', storyCopy: '每段愛情故事都獨一無二，而我們最喜歡的，就是屬於我們的這一段。期待與你分享人生的下一章。', photoMain: '照片稍後加入', photoSmall: '珍貴時刻', photoCaption: '為記錄我們故事的珍貴瞬間，<br>預留一個位置。',
         detailsKicker: '敬請預留這天',
