@@ -952,19 +952,22 @@ html[lang="zh-Hant"] .transport-map-note {
     text-align: center;
   }
 }
-    /* ===== Homepage wedding photo ===== */
+/* ===== HERO PHOTO — RESPONSIVE LAYOUT ===== */
+
+.hero {
+  position: relative;
+}
 
 .hero__photo {
   position: absolute;
   top: 50%;
-  right: 6%;
-  width: 32%;
-  max-width: 420px;
+  right: 7%;
+  width: min(28vw, 360px);
   aspect-ratio: 2 / 3;
   transform: translateY(-50%);
   overflow: hidden;
-  border-radius: 220px 220px 0 0;
   border: 1px solid rgba(169, 129, 55, 0.45);
+  border-radius: 200px 200px 0 0;
   z-index: 1;
 }
 
@@ -976,22 +979,68 @@ html[lang="zh-Hant"] .transport-map-note {
   object-position: center;
 }
 
-/* Keep the text above decorative elements */
 .hero__content {
   position: relative;
   z-index: 2;
 }
 
-/* Mobile layout */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 0;
+    height: auto;
+  }
+
+  .hero__content {
+    order: 1;
+    width: 100%;
+    padding: 110px 24px 30px;
+  }
+
   .hero__photo {
+    order: 2;
     position: relative;
     top: auto;
     right: auto;
-    width: 70%;
+    width: min(65%, 300px);
     max-width: 300px;
-    margin: 0 auto 30px;
+    margin: 0 auto 90px;
     transform: none;
+  }
+
+  .hero__scroll {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content {
+    padding: 105px 24px 25px;
+  }
+
+  .hero__photo {
+    width: 62%;
+    max-width: 260px;
+    margin-bottom: 90px;
+  }
+
+  .hero .countdown {
+    width: 100%;
+  }
+
+  .hero .countdown__unit {
+    padding: 12px 4px;
+  }
+
+  .hero .countdown__unit strong {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  .hero__countdown-note {
+    white-space: normal;
   }
 }
   </style>
