@@ -864,26 +864,6 @@ html[lang="zh-Hant"] .transport-map-note {
   letter-spacing: .12em;
 }
     
-
-    /* Embedded wedding RSVP */
-    .rsvp-embedded-layout { position: relative; z-index: 1; display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 6vw, 100px); align-items: start; }
-    .rsvp-card { border: 1px solid rgba(169,129,55,.4); background: rgba(255,254,250,.85); padding: clamp(25px, 4vw, 55px); box-shadow: 10px 12px 0 rgba(169,129,55,.07); }
-    .rsvp-card-title { margin: 0; color: var(--antique); font-family: var(--serif); font-size: clamp(35px, 4vw, 55px); font-weight: 400; }
-    .rsvp-card-intro { color: var(--muted); font-size: 14px; margin: 6px 0 25px; }
-    .rsvp-card .rsvp-form { gap: 22px; }
-    .rsvp-conditional { display: grid; gap: 22px; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .rsvp-conditional[hidden], #shuttleField[hidden] { display: none; }
-    .rsvp-two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .rsvp-hint { color: var(--muted); font-size: 12px; margin: -15px 0 0; }
-    .rsvp-consent { display: flex; gap: 12px; align-items: flex-start; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .rsvp-consent input { flex: 0 0 auto; margin-top: 5px; accent-color: var(--antique); }
-    .rsvp-card .button { justify-self: start; margin-top: 0; }
-    .rsvp-card .button:disabled { opacity: .5; cursor: wait; }
-    .rsvp-edit-note { margin: 25px 0 0; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
-    .rsvp-error { color: #9a3030; font-size: 13px; margin: 0; }
-    html[lang="zh-Hant"] .rsvp-card-title { font-family: var(--chinese-art); }
-    @media (max-width: 760px) { .rsvp-embedded-layout { grid-template-columns: 1fr; } .rsvp-two-cols { gap: 12px; } }
-
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1127,54 +1107,21 @@ html[lang="zh-Hant"] .transport-map-note {
     </section>
 
     <section class="paper-section rsvp-section" id="rsvp" aria-labelledby="rsvpTitle">
-      <div class="section-shell rsvp-embedded-layout">
-        <div class="reveal">
-          <div class="eyebrow section-label" data-i18n="rsvpKicker">With love</div>
-          <h2 class="section-heading" id="rsvpTitle" data-i18n="rsvpTitle">Will you <em>join</em><br>us?</h2>
-          <p class="section-copy" data-i18n="rsvpCopy"></p>
-        </div>
-        <div class="rsvp-card reveal reveal-delay">
-          <div id="rsvpFormContent">
-            <h3 class="rsvp-card-title" data-i18n="modalTitle">Your reply</h3>
-            <p class="rsvp-card-intro" data-i18n="modalCopy"></p>
-            <form id="rsvpForm" class="rsvp-form">
-              <div class="field"><label for="guestName" data-i18n="nameLabel"></label><input id="guestName" name="guestName" maxlength="100" required data-i18n-placeholder="namePlaceholder"></div>
-              <div class="field"><label for="guestPhone" data-i18n="phoneLabel"></label><input id="guestPhone" type="tel" name="guestPhone" maxlength="40" required autocomplete="tel" data-i18n-placeholder="phonePlaceholder"></div>
-              <div class="field"><label for="guestSide" data-i18n="sideLabel"></label><select id="guestSide" required><option value="" data-i18n="choose"></option><option value="Koey" data-i18n="sideKoey"></option><option value="Ringo" data-i18n="sideRingo"></option></select></div>
-              <div class="field"><label for="attendance" data-i18n="attendanceLabel"></label><select id="attendance" required><option value="" data-i18n="choose"></option><option value="出席" data-i18n="attendanceYes"></option><option value="未能出席" data-i18n="attendanceNo"></option></select></div>
-              <div id="attendingFields" class="rsvp-conditional" hidden>
-                <div class="field"><label for="eventChoice" data-i18n="eventLabel"></label><select id="eventChoice"><option value="" data-i18n="choose"></option><option value="證婚及午宴" data-i18n="eventBoth"></option><option value="只出席證婚" data-i18n="eventCeremony"></option><option value="只出席午宴" data-i18n="eventLunch"></option><option value="稍後決定" data-i18n="eventLater"></option></select></div>
-                <div class="rsvp-two-cols">
-                  <div class="field"><label for="adults" data-i18n="adultsLabel"></label><input id="adults" type="number" min="0" max="30" step="1" value="1"></div>
-                  <div class="field"><label for="children" data-i18n="childrenLabel"></label><input id="children" type="number" min="0" max="30" step="1" value="0"></div>
-                </div>
-                <p class="rsvp-hint" data-i18n="guestHint"></p>
-                <div class="field"><label for="transportChoice" data-i18n="transportLabel"></label><select id="transportChoice"><option value="" data-i18n="choose"></option><option value="其他交通方式" data-i18n="transportOther"></option><option value="希望乘坐接駁巴士" data-i18n="transportBus"></option><option value="自行駕車" data-i18n="transportCar"></option><option value="尚未決定" data-i18n="transportLater"></option></select></div>
-                <div class="field" id="shuttleField" hidden><label for="shuttleCount" data-i18n="shuttleCountLabel"></label><input id="shuttleCount" type="number" min="1" max="60" step="1" value="1"></div>
-                <div class="field"><label for="pets" data-i18n="petsLabel"></label><input id="pets" type="number" min="0" max="20" step="1" value="0"></div>
-                <div class="field"><label for="dietary" data-i18n="dietaryLabel"></label><textarea id="dietary" maxlength="1000" data-i18n-placeholder="dietaryPlaceholder"></textarea></div>
-              </div>
-              <div class="field"><label for="message" data-i18n="messageLabel"></label><textarea id="message" maxlength="2000" data-i18n-placeholder="messagePlaceholder"></textarea></div>
-              <label class="rsvp-consent"><input type="checkbox" id="consent" required><span data-i18n="consentText"></span></label>
-              <p class="rsvp-error" id="rsvpError" role="alert" hidden></p>
-              <button class="button" id="submitRsvp" type="submit" data-i18n="submitRsvp"></button>
-            </form>
-            <p class="rsvp-edit-note" data-i18n="editNote"></p>
-          </div>
-          <div class="rsvp-success" id="rsvpSuccess" hidden role="status" aria-live="polite">
-            <div class="rsvp-success__ring">♡</div>
-            <h3 data-i18n="successTitle"></h3>
-            <p id="successMessage"></p>
-            <button class="button" id="anotherReply" type="button" data-i18n="anotherReply"></button>
-            <p class="rsvp-edit-note" data-i18n="editNote"></p>
-          </div>
+      <div class="section-shell">
+        <div class="eyebrow section-label" data-i18n="rsvpKicker">With love</div>
+        <h2 class="section-heading" id="rsvpTitle" data-i18n="rsvpTitle">Will you <em>join</em><br>us?</h2>
+        <p class="section-copy" style="margin:18px 0 35px" data-i18n="rsvpCopy">Please reply using the form below.</p>
+        <div class="rsvp-embed">
+          <iframe id="rsvpIframe" title="Koey and Ringo RSVP" loading="lazy"
+            src="https://script.google.com/macros/s/AKfycbwWUKH1-dhRtCXwKJ6QNmIzQKKHJKZK-_QrwDK92TjW1b6UePbKR-t6a97pV1mUgQ/exec"
+            style="display:block;width:100%;height:1480px;border:0;background:transparent"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer"><span>Koey &amp; Ringo · 21.03.2027</span><span data-i18n="footer">Made with love · See you soon</span></footer>
-  <iframe name="rsvpSubmitFrame" id="rsvpSubmitFrame" title="RSVP submission" hidden></iframe>
-  <form id="rsvpTransportForm" method="POST" target="rsvpSubmitFrame" accept-charset="UTF-8" hidden><input name="payload" id="rsvpPayload"></form>
 
   <script>
     const copy = {
@@ -1214,8 +1161,8 @@ eventDesc1: 'Come a little early and make yourself at home. Enjoy some refreshme
 eventDesc2: "Surrounded by nature, we'll exchange our vows and promise a lifetime together. We would love for you to be there to witness this special moment.",
 eventDesc3: 'Love is best celebrated together. Join us for a delightful lunch filled with good food, laughter, and cherished memories.',
 tbc: 'Time to be announced',
-        rsvpKicker: 'With love', rsvpTitle: 'Will you <em>join</em><br>us?', rsvpCopy: 'We would love to celebrate with you. Please let us know if you can make it.', footer: 'Made with love · See you soon',
-        modalTitle: 'Your RSVP', modalCopy: 'Please complete one response for your party.', nameLabel: 'Your name', namePlaceholder: 'Full name', phoneLabel: 'WhatsApp / phone number', phonePlaceholder: 'Phone number', sideLabel: 'You are a friend or family member of', sideKoey: 'Koey', sideRingo: 'Ringo', choose: 'Please select', attendanceLabel: 'Will you attend?', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', eventLabel: 'Which part will you attend?', eventBoth: 'Ceremony & luncheon', eventCeremony: 'Ceremony only', eventLunch: 'Luncheon only', eventLater: 'Decide later', adultsLabel: 'Adults (including yourself)', childrenLabel: 'Children (including infants)', guestHint: 'Please include yourself in the adult count.', transportLabel: 'Transport arrangement', transportOther: 'Other transport', transportBus: 'I would like to take the shuttle bus', transportCar: 'Driving', transportLater: 'Not decided yet', shuttleCountLabel: 'Number taking the shuttle bus', petsLabel: 'Number of pets', dietaryLabel: 'Dietary requirements', dietaryPlaceholder: 'Optional — please specify any allergies or dietary needs', messageLabel: 'Message / wishes for the couple', messagePlaceholder: 'Optional', declinePlaceholder: 'Although we cannot meet, feel free to leave your wishes ♡', consentText: 'I agree that Koey & Ringo may collect and use these details solely to arrange their wedding and contact me about my RSVP.', submitRsvp: 'Submit RSVP', submitting: 'Submitting…', successTitle: 'Thank you!', successAttend: 'Thank you for your reply! We look forward to seeing you on our wedding day ♡', successDecline: 'Thank you for your reply and warm wishes! Although we cannot meet, we truly appreciate your thoughtfulness ♡', anotherReply: 'Submit another response', editNote: 'If you need to change your RSVP, please submit a new response and contact us via WhatsApp to confirm the updated arrangements.', errorSetup: 'The RSVP connection is not configured yet. Please contact Koey or Ringo.', errorTimeout: 'We could not confirm your submission. Please check with Koey or Ringo before trying again, to avoid duplicate responses.', errorGeneric: 'We could not save your RSVP. Please try again or contact us.', errorCount: 'Please enter at least one guest.', errorShuttle: 'The shuttle bus count must be between 1 and the total guest count.'
+        rsvpKicker: 'With love', rsvpTitle: 'Will you <em>join</em><br>us?', rsvpCopy: 'We would love to celebrate with you. Please reply below.', rsvpButton: 'Preview RSVP', rsvpNote: 'Demo only — no information is sent or saved.', footer: 'Made with love · See you soon',
+        modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navRsvp: '出席回覆',
@@ -1253,24 +1200,37 @@ eventDesc1: '在婚禮開始之前，邀請你先來坐坐。享用小食與飲�
 eventDesc2: '在微風與綠意之間，我們將交換誓言，許下一生相伴的承諾。期待你在場，見證我們的重要時刻。',
 eventDesc3: '幸福值得一起分享。邀請你與我們共進午餐，在美食、歡笑與祝福之中，延續這一天的喜悅。',
 tbc: '時間待定',
-        rsvpKicker: '滿懷期待', rsvpTitle: '你會與我們<em>同行</em><br>嗎？', rsvpCopy: '期待與你一同慶祝這個特別的日子，請告訴我們你會否出席。', footer: '以愛製作 · 期待與你相見',
-        modalTitle: '出席回覆', modalCopy: '請為你及同行親友填寫一份回覆。', nameLabel: '你的姓名', namePlaceholder: '請填寫姓名', phoneLabel: 'WhatsApp／聯絡電話', phonePlaceholder: '請填寫聯絡電話', sideLabel: '你是哪一方的親友？', sideKoey: 'Koey', sideRingo: 'Ringo', choose: '請選擇', attendanceLabel: '你會出席嗎？', attendanceYes: '欣然出席', attendanceNo: '未能出席', eventLabel: '出席環節', eventBoth: '證婚及午宴', eventCeremony: '只出席證婚', eventLunch: '只出席午宴', eventLater: '稍後決定', adultsLabel: '成人數目（包括自己）', childrenLabel: '小童數目（包括嬰兒）', guestHint: '成人數目請包括你自己。', transportLabel: '交通安排', transportOther: '其他交通方式', transportBus: '希望乘坐接駁巴士', transportCar: '自行駕車', transportLater: '尚未決定', shuttleCountLabel: '接駁巴士乘車人數', petsLabel: '毛孩數目', dietaryLabel: '飲食需要', dietaryPlaceholder: '選填，例如素食、食物敏感等', messageLabel: '備註／給新人的祝福', messagePlaceholder: '選填', declinePlaceholder: '雖然未能相聚，也歡迎留下你的祝福 ♡', consentText: '我同意 Koey & Ringo 收集及使用以上資料，僅用作婚禮安排及聯絡確認出席回覆。', submitRsvp: '提交回覆', submitting: '正在提交…', successTitle: '謝謝你！', successAttend: '謝謝你的回覆！期待在婚禮當日與你相見 ♡', successDecline: '謝謝你的回覆與祝福！雖然未能相聚，我們仍然十分感謝你的心意 ♡', anotherReply: '填寫另一份回覆', editNote: '如需更改已提交的回覆，請重新填寫並提交表單，再透過 WhatsApp 聯絡我們，以便確認最新安排。', errorSetup: 'RSVP 尚未完成連接設定，請聯絡 Koey 或 Ringo。', errorTimeout: '未能確認回覆是否成功儲存。為避免重複提交，請先聯絡 Koey 或 Ringo 查詢。', errorGeneric: '未能儲存回覆，請稍後再試或聯絡我們。', errorCount: '出席人數至少需要 1 位。', errorShuttle: '接駁巴士人數必須介乎 1 人至總出席人數。'
+        rsvpKicker: '滿懷期待', rsvpTitle: '你會與我們<em>同行</em><br>嗎？', rsvpCopy: '期待與你一同慶祝，請於下方填寫出席回覆。', rsvpButton: '預覽 RSVP', rsvpNote: '示範版本：資料不會傳送或儲存。', footer: '以愛製作 · 期待與你相見',
+        modalKicker: 'RSVP 示範', modalTitle: '一張小小的<br>回覆卡。', modalCopy: '這是可互動的 RSVP 表單示範，不會傳送或儲存任何資料。', nameLabel: '你的姓名', namePlaceholder: '姓名', attendanceLabel: '你會出席嗎？', attendanceChoose: '請選擇', attendanceYes: '欣然接受邀請', attendanceNo: '抱歉未能出席', guestCountLabel: '出席人數', guestCountChoose: '請選擇', messageLabel: '給新人的祝福', messagePlaceholder: '選填', submitDemo: '提交示範回覆', successTitle: '謝謝你。', successCopy: '這只是一個預覽，沒有任何回覆被傳送或儲存。', successClose: '返回網站', closeRsvp: '關閉 RSVP 表單'
       }
     };
 
-    // Paste your deployed Apps Script Web App URL below (must end with /exec).
-    const RSVP_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwWUKH1-dhRtCXwKJ6QNmIzQKKHJKZK-_QrwDK92TjW1b6UePbKR-t6a97pV1mUgQ/exec';
+    if (location.hash === '#welcome') history.replaceState(null, '', location.pathname + location.search);
+    window.addEventListener('load', () => { if (!location.hash) window.scrollTo(0, 0); });
     let language = 'zh';
     const languageToggle = document.getElementById('languageToggle');
-    const form = document.getElementById('rsvpForm');
-    const attendingFields = document.getElementById('attendingFields');
-    const shuttleField = document.getElementById('shuttleField');
-    const attendanceInput = document.getElementById('attendance');
-    const transportInput = document.getElementById('transportChoice');
-    const submitButton = document.getElementById('submitRsvp');
-    const errorBox = document.getElementById('rsvpError');
-    let pending = null;
-
+    const rsvpIframe = document.getElementById('rsvpIframe');
+    const rsvpBaseUrl = 'https://script.google.com/macros/s/AKfycbwWUKH1-dhRtCXwKJ6QNmIzQKKHJKZK-_QrwDK92TjW1b6UePbKR-t6a97pV1mUgQ/exec';
+    function setRsvpLanguage() {
+      if (rsvpBaseUrl.startsWith('https://script.google.com/macros/s/')) {
+        const next = rsvpBaseUrl + '?lang=' + language;
+        // Reload only when language actually changes; do not discard an in-progress RSVP.
+        if (rsvpIframe.dataset.language !== language) {
+          rsvpIframe.src = next;
+          rsvpIframe.dataset.language = language;
+        }
+      }
+    }
+    window.addEventListener('message', (event) => {
+      if (event.source !== rsvpIframe.contentWindow) return;
+      if (!/^https:\/\/[a-z0-9.-]*googleusercontent\.com$/.test(event.origin) &&
+          event.origin !== 'https://script.google.com') return;
+      if (event.data && event.data.type === 'KR_RSVP_HEIGHT') {
+        const height = Number(event.data.height);
+        if (Number.isFinite(height) && height >= 300 && height <= 5000)
+          rsvpIframe.style.height = height + 'px';
+      }
+    });
     function setLanguage(nextLanguage) {
       language = nextLanguage;
       const dictionary = copy[language];
@@ -1283,108 +1243,29 @@ tbc: '時間待定',
         const value = dictionary[element.dataset.i18nPlaceholder];
         if (value !== undefined) element.placeholder = value;
       });
-      document.getElementById('message').placeholder = attendanceInput.value === '未能出席' ? dictionary.declinePlaceholder : dictionary.messagePlaceholder;
-      if (pending) submitButton.textContent = dictionary.submitting;
       languageToggle.textContent = language === 'en' ? '中文' : 'EN';
       languageToggle.setAttribute('aria-label', language === 'en' ? '切換至中文' : 'Switch to English');
+      setRsvpLanguage();
     }
     languageToggle.addEventListener('click', () => setLanguage(language === 'en' ? 'zh' : 'en'));
+
     setLanguage('zh');
-    if (!window.location.hash) {
-      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-      window.addEventListener('load', () => window.scrollTo(0, 0), { once: true });
-    }
 
     function updateCountdown() {
-      // Ceremony starts at 11:00 Hong Kong time (UTC+8).
       const weddingDate = new Date('2027-03-21T11:00:00+08:00').getTime();
       const seconds = Math.max(0, Math.floor((weddingDate - Date.now()) / 1000));
-      const parts = { days: Math.floor(seconds / 86400), hours: Math.floor(seconds / 3600) % 24, minutes: Math.floor(seconds / 60) % 60, seconds: seconds % 60 };
-      Object.entries(parts).forEach(([id, value]) => { document.getElementById(id).textContent = String(value).padStart(2, '0'); });
+      const parts = {
+        days: Math.floor(seconds / 86400),
+        hours: Math.floor(seconds / 3600) % 24,
+        minutes: Math.floor(seconds / 60) % 60,
+        seconds: seconds % 60
+      };
+      Object.entries(parts).forEach(([id, value]) => {
+        document.getElementById(id).textContent = String(value).padStart(2, '0');
+      });
     }
     updateCountdown();
     window.setInterval(updateCountdown, 1000);
-
-    function updateConditionalFields() {
-      const yes = attendanceInput.value === '出席';
-      attendingFields.hidden = !yes;
-      document.getElementById('eventChoice').required = yes;
-      document.getElementById('adults').required = yes;
-      document.getElementById('children').required = yes;
-      document.getElementById('transportChoice').required = yes;
-      document.getElementById('pets').required = yes;
-      shuttleField.hidden = !(yes && transportInput.value === '希望乘坐接駁巴士');
-      document.getElementById('shuttleCount').required = !shuttleField.hidden;
-      document.getElementById('message').placeholder = attendanceInput.value === '未能出席' ? copy[language].declinePlaceholder : copy[language].messagePlaceholder;
-    }
-    attendanceInput.addEventListener('change', updateConditionalFields);
-    transportInput.addEventListener('change', updateConditionalFields);
-    updateConditionalFields();
-
-    function showError(message) { errorBox.textContent = message; errorBox.hidden = false; }
-    function finishPending() {
-      if (!pending) return;
-      clearTimeout(pending.timer);
-      pending = null;
-      submitButton.disabled = false;
-      submitButton.textContent = copy[language].submitRsvp;
-    }
-    // A reply is accepted only when the Apps Script response includes our one-time request ID.
-    window.addEventListener('message', (event) => {
-      if (!pending || !event.data || event.data.type !== 'WEDDING_RSVP_RESULT') return;
-      const allowed = /^https:\/\/([a-z0-9-]+\.)*(googleusercontent\.com|google\.com)$/i.test(event.origin);
-      if (!allowed || event.data.requestId !== pending.requestId) return;
-      const submittedAttendance = pending.attendance;
-      finishPending();
-      if (event.data.success === true) {
-        document.getElementById('rsvpFormContent').hidden = true;
-        document.getElementById('rsvpSuccess').hidden = false;
-        document.getElementById('successMessage').textContent = submittedAttendance === '出席' ? copy[language].successAttend : copy[language].successDecline;
-        document.getElementById('rsvpSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } else {
-        showError(event.data.error || copy[language].errorGeneric);
-      }
-    });
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (pending || !form.reportValidity()) return;
-      errorBox.hidden = true;
-      if (!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(RSVP_WEB_APP_URL)) { showError(copy[language].errorSetup); return; }
-      const yes = attendanceInput.value === '出席';
-      const adults = yes ? Number(document.getElementById('adults').value) : 0;
-      const children = yes ? Number(document.getElementById('children').value) : 0;
-      if (yes && adults + children < 1) { showError(copy[language].errorCount); return; }
-      const shuttle = yes && transportInput.value === '希望乘坐接駁巴士';
-      const shuttleCount = shuttle ? Number(document.getElementById('shuttleCount').value) : 0;
-      if (shuttle && (shuttleCount < 1 || shuttleCount > adults + children)) { showError(copy[language].errorShuttle); return; }
-      const requestId = (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + '-' + Math.random().toString(36).slice(2));
-      const data = {
-        requestId, name: document.getElementById('guestName').value.trim(), phone: document.getElementById('guestPhone').value.trim(),
-        side: document.getElementById('guestSide').value, attendance: attendanceInput.value,
-        event: yes ? document.getElementById('eventChoice').value : '', adults, children,
-        transport: yes ? transportInput.value : '', shuttleCount, pets: yes ? Number(document.getElementById('pets').value) : 0,
-        dietary: yes ? document.getElementById('dietary').value.trim() : '', notes: document.getElementById('message').value.trim(),
-        consent: document.getElementById('consent').checked
-      };
-      submitButton.disabled = true;
-      submitButton.textContent = copy[language].submitting;
-      const timer = setTimeout(() => {
-        finishPending();
-        showError(copy[language].errorTimeout);
-      }, 25000);
-      pending = { requestId, attendance: attendanceInput.value, timer };
-      document.getElementById('rsvpPayload').value = JSON.stringify(data);
-      document.getElementById('rsvpTransportForm').action = RSVP_WEB_APP_URL;
-      document.getElementById('rsvpTransportForm').submit();
-    });
-    document.getElementById('anotherReply').addEventListener('click', () => {
-      form.reset();
-      updateConditionalFields();
-      document.getElementById('rsvpSuccess').hidden = true;
-      document.getElementById('rsvpFormContent').hidden = false;
-      errorBox.hidden = true;
-      document.getElementById('guestName').focus();
-    });
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
