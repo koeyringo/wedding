@@ -1046,7 +1046,14 @@ html[lang="zh-Hant"] .transport-map-note {
     white-space: normal;
   }
 }
-  
+  /* RSVP iframe mobile scrolling */
+@media (max-width: 768px) {
+  #rsvpIframe {
+    width: 100%;
+    display: block;
+    touch-action: pan-y;
+  }
+}
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
