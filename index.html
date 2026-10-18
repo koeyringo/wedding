@@ -1212,11 +1212,17 @@ tbc: '時間待定',
     const rsvpIframe = document.getElementById('rsvpIframe');
     // The iframe src is the single source of truth for the Apps Script URL.
     // This also works when the user replaced only the URL in the iframe tag.
-    function setRsvpLanguage() {
-      if (rsvpIframe && rsvpIframe.contentWindow) {
-        rsvpIframe.contentWindow.postMessage({type:'KR_RSVP_LANG', lang:language}, '*');
-      }
-    }
+  function setRsvpLanguage() {
+  const baseUrl =
+    'https://script.google.com/macros/s/AKfycbwWUKH1-dhRtCXwKJ6QNmIzQKKHJKZK-_QrwDK92TjW1b6UePbKR-t6a97pV1mUgQ/exec';
+
+  const newUrl = baseUrl + '?lang=' + language;
+
+  if (rsvpIframe.dataset.language === language) return;
+
+  rsvpIframe.src = newUrl;
+  rsvpIframe.dataset.language = language;
+}
     rsvpIframe.addEventListener('load', setRsvpLanguage);
     window.addEventListener('message', (event) => {
       if (event.source !== rsvpIframe.contentWindow) return;
