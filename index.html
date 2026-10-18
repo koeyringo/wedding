@@ -1409,11 +1409,26 @@ tbc: '時間待定',
       if (!/^https:\/\/[a-z0-9.-]*googleusercontent\.com$/.test(event.origin) &&
           event.origin !== 'https://script.google.com') return;
       if (event.data && event.data.type === 'KR_RSVP_HEIGHT') {
-        const height = Number(event.data.height);
-        if (Number.isFinite(height) && height >= 300 && height <= 5000)
-          rsvpIframe.style.height = height + 'px';
-      }
+  const height = Number(event.data.height);
+
+  if (Number.isFinite(height) && height >= 300 && height <= 10000) {
+    rsvpIframe.style.height = height + 'px';
+  }
+}
+
+if (event.data && event.data.type === 'KR_RSVP_SCROLL_TOP') {
+  const target = document.getElementById('rsvpIframe');
+
+  if (target) {
+    const top = target.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: Math.max(0, top - 20),
+      behavior: 'smooth'
     });
+  }
+}
+});
     function setLanguage(nextLanguage) {
       language = nextLanguage;
       const dictionary = copy[language];
