@@ -1146,6 +1146,17 @@ html[lang="zh-Hant"] .transport-map-note {
       }
     }
   </style>
+  <style id="story-main-photo">
+    #story .portrait--main::before,
+    #story .portrait--main::after { content:none; }
+    #story .portrait--main img {
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1195,9 +1206,9 @@ html[lang="zh-Hant"] .transport-map-note {
           <p class="section-copy" data-i18n="storyCopy">Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.</p>
           <div class="rule" aria-hidden="true"></div>
         </div>
-        <div class="photo-composition reveal reveal-delay" aria-label="Photo placeholders">
+        <div class="photo-composition reveal reveal-delay" aria-label="Koey and Ringo photos">
           <div class="photo-composition__frame" aria-hidden="true"></div>
-          <figure class="portrait portrait--main"><figcaption class="portrait__label" data-i18n="photoMain">A photo, to come</figcaption></figure>
+          <figure class="portrait portrait--main"><img src="story-main.jpg" alt="Koey and Ringo holding hands by the sea at sunset" width="1200" height="1800" loading="lazy" decoding="async"></figure>
           <figure class="portrait portrait--small"><figcaption class="portrait__label" data-i18n="photoSmall">Your moment</figcaption></figure>
           <p class="photo-composition__caption" data-i18n="photoCaption">A place reserved for the moments that tell our story.</p>
         </div>
