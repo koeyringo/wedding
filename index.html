@@ -1555,6 +1555,7 @@ fieldset{border:0;padding:0;margin:0;min-width:0}legend{padding:0;margin-bottom:
 .choice:has(input:checked){background:#f6ead1;border-color:#a98137;box-shadow:inset 0 0 0 1px #a98137}
 .choice input{appearance:auto;width:19px;height:19px;min-height:19px;margin:0;flex-shrink:0;accent-color:#85652f}
 input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(input:focus-visible){outline:2px solid #85652f;outline-offset:3px}
+.invitation-choices{grid-template-columns:1fr}
 #attendingFields{display:grid;gap:26px}#thankTitle{white-space:normal;font-size:clamp(26px,5vw,40px);line-height:1.4}
 .photo{min-height:0}.photo img{aspect-ratio:3/2;height:auto!important}.thankyou p{font-size:18px}
 @media(max-width:500px){.form-card,.thankyou{padding:28px 18px}.choice{padding:12px 9px;font-size:17px}.wrap{padding:0 0 20px}}
@@ -1591,6 +1592,15 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
       <fieldset id="side"><legend data-zh="你是哪一方的親友？ *" data-en="Which side are you from? *">你是哪一方的親友？ *</legend><div class="choices"><label class="choice"><input type="radio" name="side" value="Koey" required><span data-zh="Koey 親友" data-en="Koey's guest">Koey 親友</span></label><label class="choice"><input type="radio" name="side" value="Ringo" required><span data-zh="Ringo 親友" data-en="Ringo's guest">Ringo 親友</span></label></div></fieldset>
       <fieldset id="attendance"><legend data-zh="你會出席嗎？ *" data-en="Will you attend? *">你會出席嗎？ *</legend><div class="choices"><label class="choice"><input type="radio" name="attendance" value="出席" required><span data-zh="欣然出席" data-en="Joyfully accepts">欣然出席</span></label><label class="choice"><input type="radio" name="attendance" value="未能出席" required><span data-zh="抱歉未能出席" data-en="Regretfully declines">抱歉未能出席</span></label></div></fieldset>
       <div class="conditional" id="attendingFields" hidden>
+        <fieldset id="invitationMethod">
+          <legend data-zh="喜帖領取方式 *" data-en="How would you like to receive your invitation? *">喜帖領取方式 *</legend>
+          <div class="choices invitation-choices">
+            <label class="choice"><input type="radio" name="invitationMethod" value="郵寄"><span data-zh="郵寄" data-en="By post">郵寄</span></label>
+            <label class="choice"><input type="radio" name="invitationMethod" value="婚禮當日簽到處領取"><span data-zh="婚禮當日簽到處領取" data-en="Collect at wedding check-in">婚禮當日簽到處領取</span></label>
+            <label class="choice"><input type="radio" name="invitationMethod" value="面交"><span data-zh="面交" data-en="In person">面交</span></label>
+          </div>
+        </fieldset>
+
         <fieldset id="event"><legend data-zh="出席環節 *" data-en="Which part will you attend? *">出席環節 *</legend><div class="choices"><label class="choice"><input type="radio" name="event" value="證婚及午宴"><span data-zh="證婚及午宴" data-en="Ceremony and luncheon">證婚及午宴</span></label><label class="choice"><input type="radio" name="event" value="只出席證婚"><span data-zh="只出席證婚" data-en="Ceremony only">只出席證婚</span></label><label class="choice"><input type="radio" name="event" value="只出席午宴"><span data-zh="只出席午宴" data-en="Luncheon only">只出席午宴</span></label><label class="choice"><input type="radio" name="event" value="稍後決定"><span data-zh="稍後決定" data-en="Decide later">稍後決定</span></label></div></fieldset>
         <div class="two">
           <div class="field"><label for="adults" data-zh="成人數目（包括自己）*" data-en="Adults (including yourself) *">成人數目（包括自己）*</label><input id="adults" type="number" min="0" max="30" value="1"></div>
@@ -1794,7 +1804,7 @@ tbc: '時間待定',
   const root = host.attachShadow({mode:'open'});
   root.append(document.getElementById('rsvpTemplate').content.cloneNode(true));
   const $ = id => root.getElementById(id);
-  const value = id => ['side','attendance','event','transport'].includes(id)
+  const value = id => ['side','attendance','event','transport','invitationMethod'].includes(id)
     ? $(id).querySelector('input:checked')?.value || '' : $(id).value;
   let lang = document.documentElement.lang === 'en' ? 'en' : 'zh';
   let pending = null, confirmedResponse = null, confirmedAttendance = null, state = 'idle';
@@ -1821,6 +1831,7 @@ tbc: '時間待定',
         [text('總人數','Total guests'),String(Number(d.adults)+Number(d.children))],
         [text('交通安排','Transport'),choice('transport',d.transport)]);
       if (d.transport === '希望乘坐接駁巴士') rows.push([text('乘車人數','Shuttle passengers'),d.shuttleCount]);
+      rows.push([text('喜帖領取方式','Invitation delivery'),choice('invitationMethod',d.invitationMethod)]);
       rows.push([text('毛孩數目','Pets'),d.pets]);
       if (d.dietary.trim()) rows.push([text('飲食需要','Dietary needs'),d.dietary]);
     }
@@ -1852,7 +1863,7 @@ tbc: '時間待定',
     $('attendingFields').hidden = !yes;
     $('attendingFields').querySelectorAll('input,textarea').forEach(el => {
       el.disabled = !yes;
-      el.required = yes && (['event','transport'].includes(el.name) || ['adults','children'].includes(el.id));
+      el.required = yes && (['event','transport','invitationMethod'].includes(el.name) || ['adults','children'].includes(el.id));
     });
     $('shuttleFields').hidden = !shuttle;
     $('shuttleCount').disabled = !shuttle;
@@ -1905,7 +1916,7 @@ tbc: '時間待定',
     }
     const bytes = new Uint8Array(24); crypto.getRandomValues(bytes);
     const requestId = Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
-    const data = {requestId,name:value('name'),phone:value('phone'),side:value('side'),attendance:value('attendance'),event:attending?value('event'):'',adults,children,transport:attending?value('transport'):'',shuttleCount:attending && value('transport') === '希望乘坐接駁巴士'?value('shuttleCount'):0,pets:attending?value('pets'):0,dietary:attending?value('dietary'):'',notes:value('notes'),consent:$('consent').checked};
+    const data = {requestId,formVersion:2,invitationMethod:attending?value('invitationMethod'):'',name:value('name'),phone:value('phone'),side:value('side'),attendance:value('attendance'),event:attending?value('event'):'',adults,children,transport:attending?value('transport'):'',shuttleCount:attending && value('transport') === '希望乘坐接駁巴士'?value('shuttleCount'):0,pets:attending?value('pets'):0,dietary:attending?value('dietary'):'',notes:value('notes'),consent:$('consent').checked};
     pending = {id:requestId,attendance:data.attendance,data:{...data}};
     state = 'sending'; $('submit').disabled = true; renderStatus();
     pending.timer = setTimeout(() => {state = 'uncertain'; renderStatus();},45000);
