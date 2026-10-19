@@ -1471,6 +1471,22 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
 .photo{min-height:0}.photo img{aspect-ratio:3/2;height:auto!important}.thankyou p{font-size:18px}
 @media(max-width:500px){.form-card,.thankyou{padding:28px 18px}.choice{padding:12px 9px;font-size:17px}.wrap{padding:0 0 20px}}
 @media(max-width:360px){.choices{grid-template-columns:1fr}}
+/* Keep this introduction on one line; other form text retains its size. */
+.form-card{container-type:inline-size}
+@media(max-width:500px){
+  :host([lang="zh-Hant"]) .intro{
+    font-size:clamp(10px,3vw,18px);
+    font-size:min(18px,4cqi);
+    letter-spacing:0;
+    white-space:nowrap;
+  }
+  :host([lang="zh-Hant"]) #transport input[value="希望乘坐接駁巴士"] + span{
+    font-size:16px;
+    letter-spacing:0;
+    white-space:nowrap;
+  }
+}
+
 </style>
 <div class="wrap">
   <section class="form-card" id="formCard">
@@ -1488,7 +1504,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
           <div class="field"><label for="adults" data-zh="成人數目（包括自己）*" data-en="Adults (including yourself) *">成人數目（包括自己）*</label><input id="adults" type="number" min="0" max="30" value="1"></div>
           <div class="field"><label for="children" data-zh="小童數目（包括嬰兒）*" data-en="Children (including infants) *">小童數目（包括嬰兒）*</label><input id="children" type="number" min="0" max="30" value="0"></div>
         </div>
-        <fieldset id="transport"><legend data-zh="交通安排 *" data-en="Transport arrangements *">交通安排 *</legend><div class="choices"><label class="choice"><input type="radio" name="transport" value="其他交通方式"><span data-zh="其他交通方式" data-en="Other transport">其他交通方式</span></label><label class="choice"><input type="radio" name="transport" value="希望乘坐接駁巴士"><span data-zh="希望乘坐接駁巴士" data-en="Would like the shuttle bus">希望乘坐接駁巴士</span></label><label class="choice"><input type="radio" name="transport" value="自行駕車"><span data-zh="自行駕車" data-en="Driving">自行駕車</span></label><label class="choice"><input type="radio" name="transport" value="尚未決定"><span data-zh="尚未決定" data-en="Not decided yet">尚未決定</span></label></div></fieldset>
+        <fieldset id="transport"><legend data-zh="交通安排 *" data-en="Transport arrangements *">交通安排 *</legend><div class="choices"><label class="choice"><input type="radio" name="transport" value="其他交通方式"><span data-zh="其他交通方式" data-en="Other transport">其他交通方式</span></label><label class="choice"><input type="radio" name="transport" value="希望乘坐接駁巴士"><span data-zh="乘坐接駁巴士" data-en="Shuttle bus">乘坐接駁巴士</span></label><label class="choice"><input type="radio" name="transport" value="自行駕車"><span data-zh="自行駕車" data-en="Driving">自行駕車</span></label><label class="choice"><input type="radio" name="transport" value="尚未決定"><span data-zh="尚未決定" data-en="Not decided yet">尚未決定</span></label></div></fieldset>
         <div class="field conditional" id="shuttleFields" hidden><label for="shuttleCount" data-zh="接駁巴士乘車人數 *" data-en="Number of shuttle passengers *">接駁巴士乘車人數 *</label><input id="shuttleCount" type="number" min="1" max="60" value="1"></div>
         <div class="field"><label for="pets" data-zh="毛孩數目" data-en="Number of pets">毛孩數目</label><input id="pets" type="number" min="0" max="20" value="0"></div>
         <div class="field"><label for="dietary" data-zh="飲食需要／過敏（如有）" data-en="Dietary requirements / allergies (if any)">飲食需要／過敏（如有）</label><textarea id="dietary" maxlength="1000"></textarea></div>
