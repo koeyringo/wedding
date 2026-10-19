@@ -1188,6 +1188,19 @@ html[lang="zh-Hant"] .transport-map-note {
       }
     }
   </style>
+  <style id="venue-carousel-styles">
+    .transport-visuals { min-width:0; display:grid; gap:24px; }
+    #venueCarousel { width:100%; height:auto; aspect-ratio:1; margin:0; position:relative; overflow:hidden; border:1px solid var(--line); }
+    #venueCarousel .venue-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+    #venueCarousel .venue-slide[hidden] { display:none; }
+    #venueCarousel .transport-photo-caption { padding:50px 22px 76px; pointer-events:none; }
+    #venueCarousel .transport-photo-caption strong { font-size:clamp(20px,2vw,30px); }
+    .venue-controls { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:4px 8px; border:1px solid var(--line); border-radius:30px; background:var(--cream); color:var(--antique); }
+    .venue-controls button { display:grid; place-items:center; width:44px; height:44px; padding:0; border:0; border-radius:50%; font:inherit; font-size:23px; line-height:1; color:var(--antique); background:transparent; cursor:pointer; }
+    .venue-controls button:hover { background:#f6ead1; }
+    .venue-controls button:focus-visible { outline:2px solid var(--gold); outline-offset:1px; }
+    .venue-count { min-width:42px; font-family:var(--sans); font-size:14px; text-align:center; white-space:nowrap; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1296,17 +1309,7 @@ html[lang="zh-Hant"] .transport-map-note {
       </p>
     </div>
 
-    <div class="transport-photo reveal">
-      <img
-        src="greenhouse.jpg"
-        alt="GREENHOUSE wedding venue in Yuen Long"
-        loading="lazy"
-      >
-      <div class="transport-photo-caption">
-        <span>THE VENUE</span>
-        <strong>GREENHOUSE · YUEN LONG</strong>
-      </div>
-    </div>
+
 
     <div class="transport-grid">
 
@@ -1354,6 +1357,19 @@ html[lang="zh-Hant"] .transport-map-note {
 
       </div>
 
+      <div class="transport-visuals">
+      <div class="transport-photo venue-carousel" id="venueCarousel" role="region" aria-roledescription="carousel" aria-label="場地相片">
+        <img src="greenhouse.jpg" alt="GREENHOUSE outdoor ceremony area" loading="lazy" class="venue-slide">
+        <img src="venue-table.jpg" alt="GREENHOUSE reception table setting" loading="lazy" class="venue-slide" hidden>
+        <img src="venue-marquee.jpg" alt="GREENHOUSE daytime marquee" loading="lazy" class="venue-slide" hidden>
+        <div class="transport-photo-caption"><span>THE VENUE</span><strong>GREENHOUSE · YUEN LONG</strong></div>
+        <div class="venue-controls">
+          <button type="button" data-venue="previous" aria-label="上一張">‹</button>
+          <span class="venue-count" aria-live="off">1 / 3</span>
+          <button type="button" data-venue="next" aria-label="下一張">›</button>
+          <button type="button" data-venue="play" aria-label="暫停幻燈片">Ⅱ</button>
+        </div>
+      </div>
       <div class="transport-map reveal reveal-delay">
         <iframe
           title="GREENHOUSE venue location"
@@ -1369,6 +1385,7 @@ html[lang="zh-Hant"] .transport-map-note {
         <p class="transport-map-note" data-i18n="mapNote">
           GREENHOUSE · 351 Shui Mei Tsuen, Kam Tin
         </p>
+      </div>
       </div>
 
     </div>
@@ -1872,6 +1889,42 @@ tbc: '時間待定',
     });
   }
   update();
+})();
+</script>
+<script id="venue-carousel-script">
+(() => {
+  const gallery = document.getElementById('venueCarousel');
+  const slides = Array.from(gallery.querySelectorAll('.venue-slide'));
+  const previous = gallery.querySelector('[data-venue="previous"]');
+  const next = gallery.querySelector('[data-venue="next"]');
+  const play = gallery.querySelector('[data-venue="play"]');
+  const count = gallery.querySelector('.venue-count');
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0, paused = motion.matches, hovering = false, focused = false;
+  function labels() {
+    const zh = document.documentElement.lang !== 'en';
+    gallery.setAttribute('aria-label',zh ? '場地相片' : 'Venue photos');
+    previous.setAttribute('aria-label',zh ? '上一張' : 'Previous photo');
+    next.setAttribute('aria-label',zh ? '下一張' : 'Next photo');
+    play.setAttribute('aria-label',paused ? (zh ? '播放幻燈片' : 'Play slideshow') : (zh ? '暫停幻燈片' : 'Pause slideshow'));
+    play.textContent = paused ? '▷' : 'Ⅱ';
+  }
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide,i) => { slide.hidden = i !== current; });
+    count.textContent = (current + 1) + ' / ' + slides.length;
+  }
+  previous.addEventListener('click',() => {paused = true; show(current-1); labels();});
+  next.addEventListener('click',() => {paused = true; show(current+1); labels();});
+  play.addEventListener('click',() => {paused = !paused; labels();});
+  gallery.addEventListener('pointerenter',e => {if (e.pointerType === 'mouse') hovering = true;});
+  gallery.addEventListener('pointerleave',() => {hovering = false;});
+  gallery.addEventListener('focusin',() => {focused = true;});
+  gallery.addEventListener('focusout',e => {focused = gallery.contains(e.relatedTarget);});
+  window.addEventListener('kr-language',labels);
+  motion.addEventListener('change',e => {if (e.matches) {paused = true; labels();}});
+  setInterval(() => {if (!paused && !hovering && !focused && !document.hidden) show(current+1);},5000);
+  show(0); labels();
 })();
 </script>
 </body>
