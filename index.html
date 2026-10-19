@@ -1300,6 +1300,25 @@ html[lang="zh-Hant"] .transport-map-note {
       #story .portrait--small { width:59%; max-width:270px; border-width:7px; }
     }
   </style>
+  <style id="story-front-photo-alignment">
+    @media(min-width:901px){
+      #story .portrait--small {
+        width:min(75.4%,468px);
+        max-width:none;
+        left:6%;
+        transform:translateX(-50%);
+      }
+      #story .photo-composition { padding-bottom:230px; }
+    }
+    @media(min-width:761px) and (max-width:900px){
+      #story .portrait--small {
+        width:min(75.4%,468px);
+        max-width:none;
+        left:calc(95% - min(77%,420px));
+        transform:translateX(-50%);
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
