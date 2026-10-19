@@ -1201,6 +1201,32 @@ html[lang="zh-Hant"] .transport-map-note {
     .venue-controls button:focus-visible { outline:2px solid var(--gold); outline-offset:1px; }
     .venue-count { min-width:42px; font-family:var(--sans); font-size:14px; text-align:center; white-space:nowrap; }
   </style>
+  <style id="wedding-refinements">
+    .calendar-link,.venue-map-button { display:inline-block; padding:11px 16px; color:var(--antique); border:1px solid var(--line); background:var(--cream); font-size:14px; line-height:1.4; text-decoration:none; text-align:center; }
+    .calendar-link:hover,.venue-map-button:hover { background:#f6ead1; }
+    .calendar-link:focus-visible,.venue-map-button:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+    .hero__bottom { flex-wrap:wrap; gap:16px; }
+    #rsvpTitle { margin-bottom:30px; }
+    #transport { padding-top:75px; padding-bottom:75px; }
+    #transport .transport-grid { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,4vw,60px); }
+    #transport .transport-heading { margin-bottom:28px; }
+    #transport .transport-heading .section-heading { font-size:clamp(38px,4vw,58px); }
+    #transport .transport-item { padding:19px 0; grid-template-columns:32px 1fr; gap:14px; }
+    #transport .transport-item h3 { font-size:28px; margin-bottom:9px; }
+    #transport .transport-visuals { gap:18px; }
+    #venueCarousel { aspect-ratio:auto; height:clamp(230px,23vw,290px); }
+    #venueCarousel .transport-photo-caption { padding:35px 18px 72px; }
+    #venueCarousel .transport-photo-caption strong { font-size:22px; }
+    #transport .transport-map { padding:10px; border:1px solid var(--line); background:var(--cream); box-shadow:0 6px 24px rgba(81,70,56,.04); }
+    #transport .transport-map iframe { height:230px; min-height:0; filter:none; border-radius:3px; }
+    #transport .transport-map-note { margin:12px 4px; line-height:1.6; font-size:13px; }
+    .venue-map-button { display:block; }
+    @media(max-width:767px){
+      #transport .transport-grid { grid-template-columns:1fr; }
+      #venueCarousel { height:260px; }
+      .hero__bottom { flex-direction:column; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1237,6 +1263,7 @@ html[lang="zh-Hant"] .transport-map-note {
 </div>
         <div class="hero__bottom">
           <div class="hero__date" data-i18n="heroDate">21 · 03 · 2027</div>
+          <a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a>
      
         </div>
       </div>
@@ -1295,7 +1322,10 @@ html[lang="zh-Hant"] .transport-map-note {
     <section class="paper-section transport-section" id="transport">
   <div class="section-shell">
 
-    <div class="transport-heading reveal">
+    <div class="transport-grid">
+
+      <div class="transport-information reveal">
+<div class="transport-heading reveal">
       <div class="eyebrow section-label" data-i18n="transportKicker">
         The Journey
       </div>
@@ -1303,17 +1333,7 @@ html[lang="zh-Hant"] .transport-map-note {
       <h2 class="section-heading" data-i18n="transportTitle">
         Getting <em>There</em>
       </h2>
-
-      <p class="section-copy" data-i18n="transportIntro">
-        A little guide to help you find your way to our celebration.
-      </p>
     </div>
-
-
-
-    <div class="transport-grid">
-
-      <div class="transport-information reveal">
 
         <div class="transport-item">
           <span class="transport-number">01</span>
@@ -1385,6 +1405,7 @@ html[lang="zh-Hant"] .transport-map-note {
         <p class="transport-map-note" data-i18n="mapNote">
           GREENHOUSE · 351 Shui Mei Tsuen, Kam Tin
         </p>
+        <a class="venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=22.4498594%2C114.0605032" target="_blank" rel="noopener noreferrer" data-i18n="openVenueMap">開啟 Google Maps 導航 ↗</a>
       </div>
       </div>
 
@@ -1442,7 +1463,6 @@ html[lang="zh-Hant"] .transport-map-note {
       <div class="section-shell">
         <div class="eyebrow section-label" data-i18n="rsvpKicker">With love</div>
         <h2 class="section-heading" id="rsvpTitle" data-i18n="rsvpTitle">Will you <em>join</em><br>us?</h2>
-        <p class="section-copy" style="margin:18px 0 35px" data-i18n="rsvpCopy">Please reply using the form below.</p>
         <div class="rsvp-embed">
           <div id="nativeRsvp"></div>
 <template id="rsvpTemplate"><style>
@@ -1539,6 +1559,11 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
 .photo{min-height:0}.photo img{aspect-ratio:3/2;height:auto!important}.thankyou p{font-size:18px}
 @media(max-width:500px){.form-card,.thankyou{padding:28px 18px}.choice{padding:12px 9px;font-size:17px}.wrap{padding:0 0 20px}}
 @media(max-width:360px){.choices{grid-template-columns:1fr}}
+ .reply-summary{text-align:left;margin-top:28px;padding:22px 0;border-top:1px solid var(--line)}
+.reply-summary h3{font-size:22px;color:var(--antique);font-weight:500;margin:0 0 16px}
+.reply-summary dl{margin:0;display:grid;grid-template-columns:minmax(90px,.8fr) minmax(0,1.2fr);gap:12px 16px;font-size:17px}
+.reply-summary dt{color:var(--muted)}.reply-summary dd{margin:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.thankyou .reply-summary p{font-size:15px;margin-top:20px}
 /* Keep this introduction on one line; other form text retains its size. */
 .form-card{container-type:inline-size}
 @media(max-width:500px){
@@ -1559,8 +1584,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
 <div class="wrap">
   <section class="form-card" id="formCard">
     <p class="eyebrow">K O E Y &nbsp; · &nbsp; R I N G O &nbsp; / &nbsp; 21.03.2027</p>
-    <h2 data-zh="出席回覆" data-en="Kindly RSVP">出席回覆</h2>
-    <p class="intro" data-zh="期待與你一同分享幸福時刻。請填寫以下資料。" data-en="We would love to celebrate with you. Please complete the details below.">期待與你一同分享幸福時刻。請填寫以下資料。</p>
+    <p class="intro" data-zh="請填寫以下資料，讓我們為你安排。" data-en="Please share your details so we can plan for your visit.">請填寫以下資料，讓我們為你安排。</p>
     <form id="rsvpForm">
       <div class="field"><label for="name" data-zh="姓名 *" data-en="Your name *">姓名 *</label><input id="name" required maxlength="100" autocomplete="name"></div>
       <div class="field"><label for="phone" data-zh="WhatsApp／聯絡電話 *" data-en="WhatsApp / contact number *">WhatsApp／聯絡電話 *</label><input id="phone" required maxlength="40" type="tel" autocomplete="tel"></div>
@@ -1595,6 +1619,12 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
     <div style="font-size:30px;color:#a98137">♡</div>
     <h2 id="thankTitle" tabindex="-1">謝謝你的回覆！</h2>
     <p id="thankCopy">期待在婚禮當日與你相見 ♡</p>
+    <section class="reply-summary" aria-labelledby="replySummaryTitle">
+      <h3 id="replySummaryTitle" data-zh="你的回覆摘要" data-en="Your RSVP summary">你的回覆摘要</h3>
+      <dl id="replySummary"></dl>
+      <p data-zh="如需更改回覆，請透過 WhatsApp 聯絡我們。" data-en="To change your reply, please contact us via WhatsApp.">如需更改回覆，請透過 WhatsApp 聯絡我們。</p>
+    </section>
+
     <div class="details"><strong>Koey &amp; Ringo</strong><p data-zh="2027年3月21日（星期日）" data-en="Sunday, 21 March 2027">2027年3月21日（星期日）</p><p data-zh="證婚儀式｜上午 11:00<br>婚禮午宴｜中午 12:30" data-en="Ceremony | 11:00 AM<br>Wedding luncheon | 12:30 PM">證婚儀式｜上午 11:00<br>婚禮午宴｜中午 12:30</p><p>GREENHOUSE<br><span data-zh="新界元朗錦田水尾村351號" data-en="351 Shui Mei Tsuen, Kam Tin, Yuen Long, New Territories">新界元朗錦田水尾村351號</span></p></div>
   </section>
 </div>
@@ -1616,6 +1646,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
   <script>
     const copy = {
       en: {
+        addCalendar: "Add to calendar", openVenueMap: "Open Google Maps ↗",
         jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
         pageTitle: 'Koey & Ringo — 21 March 2027', skip: 'Skip to content', navStory: 'Story', navDetails: 'Details', navSchedule: 'Wedding Schedule', navTransport: 'Getting Here', navRsvp: 'RSVP',
         heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'Until the day we begin our next beautiful chapter together.', discover: 'Discover',
@@ -1656,6 +1687,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
+        addCalendar: "加到日曆", openVenueMap: "開啟 Google Maps 導航 ↗",
         jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navSchedule: '婚禮流程', navTransport: '交通指南', navRsvp: '出席回覆',
         heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '距離我們一起展開人生新篇章的日子。', discover: '向下探索',
@@ -1765,12 +1797,40 @@ tbc: '時間待定',
   const value = id => ['side','attendance','event','transport'].includes(id)
     ? $(id).querySelector('input:checked')?.value || '' : $(id).value;
   let lang = document.documentElement.lang === 'en' ? 'en' : 'zh';
-  let pending = null, confirmedAttendance = null, state = 'idle';
+  let pending = null, confirmedResponse = null, confirmedAttendance = null, state = 'idle';
   const text = (zh,en) => lang === 'zh' ? zh : en;
   function renderStatus() {
     $('status').textContent = state === 'sending' ? text('正在提交，請稍候…','Submitting, please wait…')
       : state === 'uncertain' ? text('未能確認提交結果。資料可能已儲存，請先透過 WhatsApp 聯絡新人確認，避免重複提交。','Could not confirm submission. Your response may have been saved. Please contact the couple via WhatsApp before submitting again.')
       : state === 'failed' ? text('未能完成提交，請檢查資料及網絡後再試；如持續失敗，請聯絡新人。','Submission failed. Please check your details and connection, then try again. If it continues, contact the couple.') : '';
+  }
+  function renderSummary() {
+    const d = confirmedResponse;
+    if (!d) return;
+    const choice = (id,v) => {
+      const input = Array.from($(id).querySelectorAll('input')).find(el => el.value === v);
+      return input?.nextElementSibling?.dataset[lang] || v;
+    };
+    const rows = [
+      [text('姓名','Name'),d.name],
+      [text('出席意向','Attendance'),choice('attendance',d.attendance)]
+    ];
+    if (d.attendance === '出席') {
+      rows.push([text('出席環節','Event'),choice('event',d.event)],
+        [text('成人／小童','Adults / children'),d.adults+' / '+d.children],
+        [text('總人數','Total guests'),String(Number(d.adults)+Number(d.children))],
+        [text('交通安排','Transport'),choice('transport',d.transport)]);
+      if (d.transport === '希望乘坐接駁巴士') rows.push([text('乘車人數','Shuttle passengers'),d.shuttleCount]);
+      rows.push([text('毛孩數目','Pets'),d.pets]);
+      if (d.dietary.trim()) rows.push([text('飲食需要','Dietary needs'),d.dietary]);
+    }
+    if (d.notes.trim()) rows.push([text('備註／祝福','Notes / wishes'),d.notes]);
+    const list = $('replySummary'); list.replaceChildren();
+    rows.forEach(([label,value]) => {
+      const term = document.createElement('dt'), description = document.createElement('dd');
+      term.textContent = label; description.textContent = String(value);
+      list.append(term,description);
+    });
   }
   function translate() {
     host.lang = lang === 'zh' ? 'zh-Hant' : 'en';
@@ -1783,6 +1843,7 @@ tbc: '時間待定',
       $('thankTitle').textContent = yes ? text('謝謝你的回覆！','Thank you for your RSVP!') : text('謝謝你的回覆與祝福！','Thank you for your reply and wishes!');
       $('thankCopy').textContent = yes ? text('期待在婚禮當日與你相見 ♡','We look forward to celebrating with you ♡') : text('雖然未能相聚，我們仍然十分感謝你的心意 ♡','Although we cannot celebrate together, your kind wishes mean so much to us ♡');
     }
+    renderSummary();
     renderStatus();
   }
   function updateConditional() {
@@ -1817,6 +1878,7 @@ tbc: '時間待定',
     clearTimeout(pending.timer);
     if (result.success === true && typeof result.responseId === 'string' && result.responseId && result.attendance === pending.attendance) {
       confirmedAttendance = result.attendance;
+      confirmedResponse = pending.data;
       pending = null; state = 'success'; payload.value = '';
       $('formCard').hidden = true; $('thankyou').hidden = false; translate();
       $('thankTitle').focus({preventScroll:true}); host.scrollIntoView({block:'start',behavior:'smooth'});
@@ -1844,7 +1906,7 @@ tbc: '時間待定',
     const bytes = new Uint8Array(24); crypto.getRandomValues(bytes);
     const requestId = Array.from(bytes,b=>b.toString(16).padStart(2,'0')).join('');
     const data = {requestId,name:value('name'),phone:value('phone'),side:value('side'),attendance:value('attendance'),event:attending?value('event'):'',adults,children,transport:attending?value('transport'):'',shuttleCount:attending && value('transport') === '希望乘坐接駁巴士'?value('shuttleCount'):0,pets:attending?value('pets'):0,dietary:attending?value('dietary'):'',notes:value('notes'),consent:$('consent').checked};
-    pending = {id:requestId,attendance:data.attendance};
+    pending = {id:requestId,attendance:data.attendance,data:{...data}};
     state = 'sending'; $('submit').disabled = true; renderStatus();
     pending.timer = setTimeout(() => {state = 'uncertain'; renderStatus();},45000);
     payload.value = JSON.stringify(data);

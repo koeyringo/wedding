@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Koey and Ringo//Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:koey-ringo-20270321@koeyringo.github.io
+DTSTAMP:20261019T000000Z
+DTSTART:20270321T030000Z
+SUMMARY:Koey & Ringo Wedding
+LOCATION:GREENHOUSE - 351 Shui Mei Tsuen\, Kam Tin\, Yuen Long
+DESCRIPTION:Ceremony at 11:00 AM and luncheon at 12:30 PM (Hong Kong time)
+ . End time to be confirmed.\nhttps://koeyringo.github.io/wedding/
+URL:https://koeyringo.github.io/wedding/
+END:VEVENT
+END:VCALENDAR
