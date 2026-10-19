@@ -1319,6 +1319,40 @@ html[lang="zh-Hant"] .transport-map-note {
       }
     }
   </style>
+  <style id="story-instant-timeline">
+    #story .story-intro { padding-top:10px; }
+    .story-timeline-title { font-family:var(--serif); font-size:clamp(24px,2.6vw,38px); font-weight:400; line-height:1.5; margin:20px 0 34px; color:var(--ink); }
+    html[lang="zh-Hant"] .story-timeline-title { font-family:var(--chinese-art); }
+    .story-timeline { list-style:none; padding:0 0 0 27px; margin:0 0 0 5px; border-left:1px solid #c6a66b; }
+    .story-timeline li { position:relative; padding:0 0 28px; }
+    .story-timeline li:last-child { padding-bottom:0; }
+    .story-timeline li::before { content:""; position:absolute; left:-32px; top:6px; width:9px; height:9px; background:#a98137; border-radius:50%; }
+    .story-year { font-family:var(--serif); color:var(--antique); font-size:19px; letter-spacing:.17em; }
+    .story-timeline p { font-family:var(--serif); color:var(--ink); font-size:clamp(23px,2.25vw,33px); line-height:1.65; margin:10px 0 0; }
+    html[lang="zh-Hant"] .story-timeline p { font-family:var(--chinese-art); }
+    .story-timeline em { color:var(--gold); font-style:normal; }
+    .story-continued { font-family:var(--script); font-size:clamp(30px,3.4vw,47px); font-weight:400; color:var(--antique); margin:30px 0 0 28px; }
+    html[lang="zh-Hant"] .story-continued { font-family:var(--chinese-art); font-size:28px; }
+    #story .portrait--main,#story .portrait--small {
+      display:block; height:auto; aspect-ratio:auto; border:0; border-radius:0;
+      padding:14px 14px 0; background:#fffefa; overflow:hidden;
+      box-shadow:0 12px 32px rgba(81,70,56,.16),0 0 0 1px rgba(81,70,56,.07);
+    }
+    #story .portrait--main img { width:100%; height:auto; aspect-ratio:2 / 3; object-fit:cover; border-radius:0; }
+    #story .portrait--small img { width:100%; height:auto; aspect-ratio:3 / 4; object-fit:cover; border-radius:0; }
+    #story .portrait--main { transform:rotate(2deg); }
+    #story .portrait--small { z-index:3; transform:translateX(-50%) rotate(-5deg); padding:11px 11px 0; }
+    #story .instant-caption { display:block; padding:14px 4px 20px; text-align:center; font-family:'LXGW WenKai TC',cursive; font-size:clamp(25px,2.8vw,38px); font-weight:600; font-style:italic; color:#514638; letter-spacing:.045em; transform:rotate(-2deg); line-height:1.3; }
+    #story .portrait--small .instant-caption { font-size:clamp(24px,2.5vw,34px); padding:12px 4px 18px; }
+    @media(min-width:901px){ #story .story-layout { gap:clamp(100px,10vw,170px); } }
+    @media(max-width:760px){
+      #story .photo-composition { min-height:0; padding:12px 0 190px; }
+      #story .portrait--main { position:relative; top:auto; right:auto; width:78%; margin:0 0 0 22%; }
+      #story .portrait--small { left:0; bottom:0; width:60%; max-width:270px; transform:rotate(-5deg); }
+      #story .portrait--main,#story .portrait--small { padding:9px 9px 0; }
+      .story-timeline-title { margin-bottom:28px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1364,15 +1398,20 @@ html[lang="zh-Hant"] .transport-map-note {
     <section class="paper-section" id="story" aria-labelledby="storyTitle">
       <div class="section-shell story-layout">
         <div class="story-intro reveal">
-          <div class="eyebrow section-label" data-i18n="storyKicker">Chapter one</div>
-          <h2 class="section-heading" id="storyTitle" data-i18n="storyTitle">Our <em>story</em>,<br>still unfolding.</h2>
-          <p class="section-copy" data-i18n="storyCopy">Every love story is one of a kind. Ours is our favourite, and we cannot wait to share its next chapter with you.</p>
-          <div class="rule" aria-hidden="true"></div>
+          <div class="eyebrow section-label" data-i18n="ourStoryLabel">我們的故事</div>
+          <h2 id="storyTitle" class="story-timeline-title" data-i18n="ourStoryBeginning">幸福，從相遇開始。</h2>
+          <ol class="story-timeline">
+            <li><span class="story-year">2017</span><p data-i18n="storyMet">那一年，<br>我們<em>相遇</em>。</p></li>
+            <li><span class="story-year">2018</span><p data-i18n="storyLove">從此，<br>生活多了一個<em>你</em>。</p></li>
+            <li><span class="story-year">2018 – 2026</span><p data-i18n="storyGrew">一起走過世界，<br>也一起慢慢<em>成長</em>。</p></li>
+            <li><span class="story-year">2027</span><p data-i18n="storyForever">從今以後，<br>我們決定攜手<em>一生</em>。</p></li>
+          </ol>
+          <p class="story-continued" data-i18n="storyContinued">未完待續⋯</p>
         </div>
         <div class="photo-composition reveal reveal-delay" aria-label="Koey and Ringo photos">
           <div class="photo-composition__frame" aria-hidden="true"></div>
-          <figure class="portrait portrait--main"><img src="story-main.jpg" alt="Koey and Ringo holding hands by the sea at sunset" width="1200" height="1800" loading="lazy" decoding="async"></figure>
-          <figure class="portrait portrait--small"><img src="story-small.jpg" alt="Koey and Ringo sitting together outdoors" loading="lazy" decoding="async"></figure>
+          <figure class="portrait portrait--main"><img src="story-main.jpg" alt="Koey and Ringo holding hands by the sea at sunset" width="1200" height="1800" loading="lazy" decoding="async"><figcaption class="instant-caption" data-i18n="photoYear2026">2026年</figcaption></figure>
+          <figure class="portrait portrait--small"><img src="story-small.jpg" alt="Koey and Ringo sitting together outdoors" loading="lazy" decoding="async"><figcaption class="instant-caption" data-i18n="photoYear2017">2017年</figcaption></figure>
           <p class="photo-composition__caption" data-i18n="photoCaption">A place reserved for the moments that tell our story.</p>
         </div>
       </div>
@@ -1748,6 +1787,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
   <script>
     const copy = {
       en: {
+        ourStoryLabel:"Our Story", ourStoryBeginning:"The Beginning of Our Forever", storyMet:"We <em>met.</em>", storyLove:"We fell in <em>love.</em>", storyGrew:"We grew <em>together.</em>", storyForever:"We choose <em>forever.</em>", storyContinued:"To Be Continued…", photoYear2017:"2017", photoYear2026:"2026",
         calendarDate:"Sunday · 21 March 2027", calendarMonth:"March", calendarNote:"A day for us, a memory with you.", calDay0:"Sun", calDay1:"Mon", calDay2:"Tue", calDay3:"Wed", calDay4:"Thu", calDay5:"Fri", calDay6:"Sat",
         addCalendar: "Add to calendar", openVenueMap: "Open Google Maps ↗",
         jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
@@ -1790,6 +1830,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
+        ourStoryLabel:"我們的故事", ourStoryBeginning:"幸福，從相遇開始。", storyMet:"那一年，<br>我們<em>相遇</em>。", storyLove:"從此，<br>生活多了一個<em>你</em>。", storyGrew:"一起走過世界，<br>也一起慢慢<em>成長</em>。", storyForever:"從今以後，<br>我們決定攜手<em>一生</em>。", storyContinued:"未完待續⋯", photoYear2017:"2017年", photoYear2026:"2026年",
         calendarDate:"2027年3月21日 · 星期日", calendarMonth:"三月", calendarNote:"把這天，留給我們的幸福時刻。", calDay0:"日", calDay1:"一", calDay2:"二", calDay3:"三", calDay4:"四", calDay5:"五", calDay6:"六",
         addCalendar: "加到日曆", openVenueMap: "開啟 Google Maps 導航 ↗",
         jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
