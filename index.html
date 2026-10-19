@@ -1282,6 +1282,24 @@ html[lang="zh-Hant"] .transport-map-note {
       .calendar-panel .wedding-day time { font-size:20px; }
     }
   </style>
+  <style id="photo-and-playback-update">
+    .hero__ring { display:none; }
+    .hero__photo { border:1px solid #b18c49; }
+    #story .photo-composition__frame { display:none; }
+    #story .portrait--main { border:1px solid #b18c49; }
+    #story .portrait--small {
+      width:min(58%,360px); height:auto; aspect-ratio:3 / 4;
+      border:9px solid var(--cream); box-shadow:0 6px 22px rgba(81,70,56,.14);
+    }
+    #story .portrait--small::before,#story .portrait--small::after { content:none; }
+    #story .portrait--small img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+    #story .photo-composition__caption { display:none; }
+    @media(min-width:901px){ #story .photo-composition { padding-bottom:170px; } }
+    @media(max-width:760px){
+      #story .photo-composition { min-height:610px; }
+      #story .portrait--small { width:59%; max-width:270px; border-width:7px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1335,7 +1353,7 @@ html[lang="zh-Hant"] .transport-map-note {
         <div class="photo-composition reveal reveal-delay" aria-label="Koey and Ringo photos">
           <div class="photo-composition__frame" aria-hidden="true"></div>
           <figure class="portrait portrait--main"><img src="story-main.jpg" alt="Koey and Ringo holding hands by the sea at sunset" width="1200" height="1800" loading="lazy" decoding="async"></figure>
-          <figure class="portrait portrait--small"><figcaption class="portrait__label" data-i18n="photoSmall">Your moment</figcaption></figure>
+          <figure class="portrait portrait--small"><img src="story-small.jpg" alt="Koey and Ringo sitting together outdoors" loading="lazy" decoding="async"></figure>
           <p class="photo-composition__caption" data-i18n="photoCaption">A place reserved for the moments that tell our story.</p>
         </div>
       </div>
@@ -2029,8 +2047,7 @@ tbc: '時間待定',
   const next = gallery.querySelector('[data-venue="next"]');
   const play = gallery.querySelector('[data-venue="play"]');
   const count = gallery.querySelector('.venue-count');
-  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0, paused = motion.matches, hovering = false, focused = false;
+  let current = 0, paused = false;
   function labels() {
     const zh = document.documentElement.lang !== 'en';
     gallery.setAttribute('aria-label',zh ? '場地相片' : 'Venue photos');
@@ -2044,16 +2061,11 @@ tbc: '時間待定',
     slides.forEach((slide,i) => { slide.hidden = i !== current; });
     count.textContent = (current + 1) + ' / ' + slides.length;
   }
-  previous.addEventListener('click',() => {paused = true; show(current-1); labels();});
-  next.addEventListener('click',() => {paused = true; show(current+1); labels();});
+  previous.addEventListener('click',() => {show(current-1);});
+  next.addEventListener('click',() => {show(current+1);});
   play.addEventListener('click',() => {paused = !paused; labels();});
-  gallery.addEventListener('pointerenter',e => {if (e.pointerType === 'mouse') hovering = true;});
-  gallery.addEventListener('pointerleave',() => {hovering = false;});
-  gallery.addEventListener('focusin',() => {focused = true;});
-  gallery.addEventListener('focusout',e => {focused = gallery.contains(e.relatedTarget);});
   window.addEventListener('kr-language',labels);
-  motion.addEventListener('change',e => {if (e.matches) {paused = true; labels();}});
-  setInterval(() => {if (!paused && !hovering && !focused && !document.hidden) show(current+1);},5000);
+  setInterval(() => {if (!paused && !document.hidden) show(current+1);},3000);
   show(0); labels();
 })();
 </script>
