@@ -1258,6 +1258,30 @@ html[lang="zh-Hant"] .transport-map-note {
       #transport .transport-map iframe { height:260px; }
     }
   </style>
+  <style id="calendar-polish">
+    .calendar-panel {
+      max-width:390px; margin:24px auto 0; padding:22px 16px 14px;
+      background:#fffefa; border:1px solid #d4ba84; border-top:3px solid #a98137;
+      border-radius:8px; box-shadow:0 8px 24px rgba(133,101,47,.08);
+    }
+    .calendar-panel .wedding-month { width:100%; max-width:none; margin:0; border-spacing:0 6px; }
+    .calendar-panel .wedding-month caption { padding:0 0 14px; color:#78581f; font-size:38px; line-height:1.15; }
+    .calendar-panel .calendar-year { font-size:14px; font-weight:500; letter-spacing:.2em; margin-top:8px; color:#78581f; }
+    .calendar-panel .wedding-month th { padding:9px 0; border:0; background:#f4e9d2; color:#735620; font-size:14px; font-weight:500; }
+    .calendar-panel .wedding-month th:first-child { border-radius:5px 0 0 5px; }
+    .calendar-panel .wedding-month th:last-child { border-radius:0 5px 5px 0; }
+    .calendar-panel .wedding-month td { height:44px; font-size:25px; font-weight:500; color:#514638; }
+    .calendar-panel .wedding-month td:first-child { color:#85652f; }
+    .calendar-panel .wedding-day-wrap { width:100%; max-width:50px; height:46px; }
+    .calendar-panel .calendar-heart { width:100%; height:48px; left:0; top:-1px; fill:#99732e; stroke:#85652f; stroke-width:1.2; filter:drop-shadow(0 2px 2px rgba(133,101,47,.18)); }
+    .calendar-panel .wedding-day time { color:#fffefa; font-size:23px; font-weight:600; }
+    @media(max-width:400px){
+      .calendar-panel { padding:18px 8px 12px; }
+      .calendar-panel .wedding-month td { font-size:22px; }
+      .calendar-panel .wedding-month th { font-size:12px; }
+      .calendar-panel .wedding-day time { font-size:20px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1328,10 +1352,9 @@ html[lang="zh-Hant"] .transport-map-note {
         </div>
         <div class="details-card reveal reveal-delay">
           <article class="detail">
-            <div class="detail__term" data-i18n="when">When</div>
             <h3 class="detail__answer" data-i18n="calendarDate">Sunday · 21 March 2027</h3>
             <p class="detail__note" data-i18n="timePending">Time to be announced</p>
-<table class="wedding-month" aria-label="March 2027, wedding on Sunday 21 March"><caption><span data-i18n="calendarMonth">March</span><span class="calendar-year">2027</span></caption><thead><tr><th scope="col" data-i18n="calDay0">Sun</th><th scope="col" data-i18n="calDay1">Mon</th><th scope="col" data-i18n="calDay2">Tue</th><th scope="col" data-i18n="calDay3">Wed</th><th scope="col" data-i18n="calDay4">Thu</th><th scope="col" data-i18n="calDay5">Fri</th><th scope="col" data-i18n="calDay6">Sat</th></tr></thead><tbody><tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr><tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr><tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr><tr><td class="wedding-day"><span class="wedding-day-wrap"><svg class="calendar-heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 53C26 47 5 33 5 19C5 4 24 1 32 15C40 1 59 4 59 19C59 33 38 47 32 53Z"/></svg><time datetime="2027-03-21" aria-label="Wedding day, 21 March 2027">21</time></span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td></tr><tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr></tbody></table><p class="calendar-note" data-i18n="calendarNote">A day for us, a memory with you.</p><a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a>
+<div class="calendar-panel"><table class="wedding-month" aria-label="March 2027, wedding on Sunday 21 March"><caption><span data-i18n="calendarMonth">March</span><span class="calendar-year">2027</span></caption><thead><tr><th scope="col" data-i18n="calDay0">Sun</th><th scope="col" data-i18n="calDay1">Mon</th><th scope="col" data-i18n="calDay2">Tue</th><th scope="col" data-i18n="calDay3">Wed</th><th scope="col" data-i18n="calDay4">Thu</th><th scope="col" data-i18n="calDay5">Fri</th><th scope="col" data-i18n="calDay6">Sat</th></tr></thead><tbody><tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr><tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr><tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr><tr><td class="wedding-day"><span class="wedding-day-wrap"><svg class="calendar-heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 53C26 47 5 33 5 19C5 4 24 1 32 15C40 1 59 4 59 19C59 33 38 47 32 53Z"/></svg><time datetime="2027-03-21" aria-label="Wedding day, 21 March 2027">21</time></span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td></tr><tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr></tbody></table></div><p class="calendar-note" data-i18n="calendarNote">A day for us, a memory with you.</p><a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a>
           </article>
           <article class="detail detail--venue">
       <div class="transport-photo venue-carousel" id="venueCarousel" role="region" aria-roledescription="carousel" aria-label="場地相片">
@@ -1345,7 +1368,6 @@ html[lang="zh-Hant"] .transport-map-note {
           <button type="button" data-venue="play" aria-label="暫停幻燈片">Ⅱ</button>
         </div>
       </div>
-            <div class="detail__term" data-i18n="where">Where</div>
             <h3 class="detail__answer" data-i18n="venuePending">Venue to<br>be announced</h3>
             <p class="detail__note" data-i18n="locationPending">Location details coming soon</p>
             <a
@@ -1623,6 +1645,16 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
       <fieldset id="side"><legend data-zh="你是哪一方的親友？ *" data-en="Which side are you from? *">你是哪一方的親友？ *</legend><div class="choices"><label class="choice"><input type="radio" name="side" value="Koey" required><span data-zh="Koey 親友" data-en="Koey's guest">Koey 親友</span></label><label class="choice"><input type="radio" name="side" value="Ringo" required><span data-zh="Ringo 親友" data-en="Ringo's guest">Ringo 親友</span></label></div></fieldset>
       <fieldset id="attendance"><legend data-zh="你會出席嗎？ *" data-en="Will you attend? *">你會出席嗎？ *</legend><div class="choices"><label class="choice"><input type="radio" name="attendance" value="出席" required><span data-zh="欣然出席" data-en="Joyfully accepts">欣然出席</span></label><label class="choice"><input type="radio" name="attendance" value="未能出席" required><span data-zh="抱歉未能出席" data-en="Regretfully declines">抱歉未能出席</span></label></div></fieldset>
       <div class="conditional" id="attendingFields" hidden>
+
+
+        <fieldset id="event"><legend data-zh="出席環節 *" data-en="Which part will you attend? *">出席環節 *</legend><div class="choices"><label class="choice"><input type="radio" name="event" value="證婚及午宴"><span data-zh="證婚及午宴" data-en="Ceremony and luncheon">證婚及午宴</span></label><label class="choice"><input type="radio" name="event" value="只出席證婚"><span data-zh="只出席證婚" data-en="Ceremony only">只出席證婚</span></label><label class="choice"><input type="radio" name="event" value="只出席午宴"><span data-zh="只出席午宴" data-en="Luncheon only">只出席午宴</span></label><label class="choice"><input type="radio" name="event" value="稍後決定"><span data-zh="稍後決定" data-en="Decide later">稍後決定</span></label></div></fieldset>
+        <div class="two">
+          <div class="field"><label for="adults" data-zh="成人數目（包括自己）*" data-en="Adults (including yourself) *">成人數目（包括自己）*</label><input id="adults" type="number" min="0" max="30" value="1"></div>
+          <div class="field"><label for="children" data-zh="小童數目（包括嬰兒）*" data-en="Children (including infants) *">小童數目（包括嬰兒）*</label><input id="children" type="number" min="0" max="30" value="0"></div>
+        </div>
+        <div class="field"><label for="pets" data-zh="毛孩數目" data-en="Number of pets">毛孩數目</label><input id="pets" type="number" min="0" max="20" value="0"></div>
+        <fieldset id="transport"><legend data-zh="交通安排 *" data-en="Transport arrangements *">交通安排 *</legend><div class="choices"><label class="choice"><input type="radio" name="transport" value="其他交通方式"><span data-zh="其他交通方式" data-en="Other transport">其他交通方式</span></label><label class="choice"><input type="radio" name="transport" value="希望乘坐接駁巴士"><span data-zh="乘坐接駁巴士" data-en="Shuttle bus">乘坐接駁巴士</span></label><label class="choice"><input type="radio" name="transport" value="自行駕車"><span data-zh="自行駕車" data-en="Driving">自行駕車</span></label><label class="choice"><input type="radio" name="transport" value="尚未決定"><span data-zh="尚未決定" data-en="Not decided yet">尚未決定</span></label></div></fieldset>
+        <div class="field conditional" id="shuttleFields" hidden><label for="shuttleCount" data-zh="接駁巴士乘車人數 *" data-en="Number of shuttle passengers *">接駁巴士乘車人數 *</label><input id="shuttleCount" type="number" min="1" max="60" value="1"></div>
         <fieldset id="invitationMethod">
           <legend data-zh="喜帖領取方式 *" data-en="How would you like to receive your invitation? *">喜帖領取方式 *</legend>
           <div class="choices invitation-choices">
@@ -1632,14 +1664,6 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
           </div>
         </fieldset>
 
-        <fieldset id="event"><legend data-zh="出席環節 *" data-en="Which part will you attend? *">出席環節 *</legend><div class="choices"><label class="choice"><input type="radio" name="event" value="證婚及午宴"><span data-zh="證婚及午宴" data-en="Ceremony and luncheon">證婚及午宴</span></label><label class="choice"><input type="radio" name="event" value="只出席證婚"><span data-zh="只出席證婚" data-en="Ceremony only">只出席證婚</span></label><label class="choice"><input type="radio" name="event" value="只出席午宴"><span data-zh="只出席午宴" data-en="Luncheon only">只出席午宴</span></label><label class="choice"><input type="radio" name="event" value="稍後決定"><span data-zh="稍後決定" data-en="Decide later">稍後決定</span></label></div></fieldset>
-        <div class="two">
-          <div class="field"><label for="adults" data-zh="成人數目（包括自己）*" data-en="Adults (including yourself) *">成人數目（包括自己）*</label><input id="adults" type="number" min="0" max="30" value="1"></div>
-          <div class="field"><label for="children" data-zh="小童數目（包括嬰兒）*" data-en="Children (including infants) *">小童數目（包括嬰兒）*</label><input id="children" type="number" min="0" max="30" value="0"></div>
-        </div>
-        <fieldset id="transport"><legend data-zh="交通安排 *" data-en="Transport arrangements *">交通安排 *</legend><div class="choices"><label class="choice"><input type="radio" name="transport" value="其他交通方式"><span data-zh="其他交通方式" data-en="Other transport">其他交通方式</span></label><label class="choice"><input type="radio" name="transport" value="希望乘坐接駁巴士"><span data-zh="乘坐接駁巴士" data-en="Shuttle bus">乘坐接駁巴士</span></label><label class="choice"><input type="radio" name="transport" value="自行駕車"><span data-zh="自行駕車" data-en="Driving">自行駕車</span></label><label class="choice"><input type="radio" name="transport" value="尚未決定"><span data-zh="尚未決定" data-en="Not decided yet">尚未決定</span></label></div></fieldset>
-        <div class="field conditional" id="shuttleFields" hidden><label for="shuttleCount" data-zh="接駁巴士乘車人數 *" data-en="Number of shuttle passengers *">接駁巴士乘車人數 *</label><input id="shuttleCount" type="number" min="1" max="60" value="1"></div>
-        <div class="field"><label for="pets" data-zh="毛孩數目" data-en="Number of pets">毛孩數目</label><input id="pets" type="number" min="0" max="20" value="0"></div>
         <div class="field"><label for="dietary" data-zh="飲食需要／過敏（如有）" data-en="Dietary requirements / allergies (if any)">飲食需要／過敏（如有）</label><textarea id="dietary" maxlength="1000"></textarea></div>
       </div>
       <div class="field"><label for="notes" data-zh="備註／給新人的祝福" data-en="Notes / a message for the couple">備註／給新人的祝福</label><textarea id="notes" maxlength="2000" placeholder="如有其他安排或祝福，歡迎留言 ♡"></textarea></div>
