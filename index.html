@@ -1157,6 +1157,37 @@ html[lang="zh-Hant"] .transport-map-note {
       object-position:center;
     }
   </style>
+  <style id="desktop-story-large-photo">
+    @media (min-width:901px) {
+      #story .story-layout {
+        width:min(1500px,100%);
+        grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+        gap:clamp(32px,4vw,64px);
+      }
+      #story .photo-composition {
+        min-height:0;
+        padding:0 0 110px;
+      }
+      #story .portrait--main {
+        position:relative;
+        top:0;
+        right:auto;
+        width:94%;
+        height:auto;
+        aspect-ratio:2 / 3;
+        margin-left:6%;
+        border-radius:50% 50% 0 0 / 33.333% 33.333% 0 0;
+      }
+      #story .photo-composition__frame {
+        top:20px;
+        right:0;
+        width:94%;
+        height:auto;
+        aspect-ratio:2 / 3;
+        transform:translateX(12px);
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
