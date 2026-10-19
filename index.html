@@ -1059,6 +1059,34 @@ html[lang="zh-Hant"] .transport-map-note {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style id="mobile-jump-styles">
+    .mobile-jump { display:none; }
+    @media (max-width:768px) {
+      html { scroll-padding-bottom:calc(98px + env(safe-area-inset-bottom, 0px)); }
+      body { padding-bottom:calc(82px + env(safe-area-inset-bottom, 0px)); }
+      .mobile-jump {
+        position:fixed; z-index:1000; inset:auto 0 0; display:grid;
+        grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px;
+        padding:8px max(8px,env(safe-area-inset-right,0px)) calc(8px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px));
+        background:var(--cream,#fffefa); border-top:1px solid rgba(169,129,55,.3);
+        box-shadow:0 -3px 18px rgba(81,70,56,.06);
+      }
+      .mobile-jump a {
+        min-width:0; min-height:62px; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; gap:5px; padding:6px 2px;
+        border-radius:9px; color:var(--antique,#85652f); text-decoration:none;
+        font-family:inherit; font-size:14px; line-height:1.3; letter-spacing:.02em;
+        -webkit-tap-highlight-color:transparent;
+      }
+      .mobile-jump svg { width:23px; height:23px; flex-shrink:0; }
+      .mobile-jump a[aria-current="location"] { background:#f6ead1; }
+      .mobile-jump a.mobile-jump__rsvp { color:var(--cream,#fffefa); background:var(--antique,#85652f); }
+      .mobile-jump a:focus-visible { outline:2px solid var(--gold,#a98137); outline-offset:2px; }
+      .mobile-jump a:active { background:#e8ce95; color:#514638; }
+      .mobile-jump.is-keyboard-open { display:none; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1445,9 +1473,17 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
 
   <footer class="site-footer"><span>Koey &amp; Ringo · 21.03.2027</span><span data-i18n="footer">Made with love · See you soon</span></footer>
 
+<nav class="mobile-jump" id="mobileJump" aria-label="婚禮頁面快速導覽">
+<a href="#story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span data-i18n="jumpStory">故事</span></a>
+<a href="#schedule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg><span data-i18n="jumpSchedule">流程</span></a>
+<a href="#transport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="jumpTransport">交通</span></a>
+<a href="#details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.1"/></svg><span data-i18n="jumpDetails">資訊</span></a>
+<a href="#rsvp" class="mobile-jump__rsvp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="jumpRsvp">回覆</span></a>
+</nav>
   <script>
     const copy = {
       en: {
+        jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
         pageTitle: 'Koey & Ringo — 21 March 2027', skip: 'Skip to content', navStory: 'Story', navDetails: 'Details', navSchedule: 'Wedding Schedule', navTransport: 'Getting Here', navRsvp: 'RSVP',
         heroKicker: 'A celebration of love', heroDate: '21 · 03 · 2027', heroNote: 'Until the day we begin our next beautiful chapter together.', discover: 'Discover',
         countKicker: 'Save the date', countTitle: 'The <em>countdown</em><br>begins.', countCopy: 'Until the day we begin our next beautiful chapter together.', days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
@@ -1487,6 +1523,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
+        jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navSchedule: '婚禮流程', navTransport: '交通指南', navRsvp: '出席回覆',
         heroKicker: '誠邀你見證我們的幸福時刻', heroDate: '2027 · 03 · 21', heroNote: '距離我們一起展開人生新篇章的日子。', discover: '向下探索',
         countKicker: '敬請預留日期', countTitle: '幸福<em>倒數</em><br>開始。', countCopy: '距離我們一起展開人生新篇章的日子。', days: '日', hours: '小時', minutes: '分鐘', seconds: '秒',
@@ -1684,6 +1721,42 @@ tbc: '時間待定',
   updateConditional();
 })();
 
+</script>
+
+<script id="mobile-jump-script">
+(() => {
+  const nav = document.getElementById('mobileJump');
+  const links = Array.from(nav.querySelectorAll('a'));
+  const sections = links.map(link => document.querySelector(link.getAttribute('href')));
+  let queued = false;
+  function update() {
+    queued = false;
+    const marker = Math.min(window.innerHeight * .35, 240);
+    let active = -1, nearest = -Infinity;
+    sections.forEach((section, i) => {
+      if (!section) return;
+      const top = section.getBoundingClientRect().top;
+      if (top <= marker && top > nearest) { nearest = top; active = i; }
+    });
+    links.forEach((link, i) => {
+      if (i === active) link.setAttribute('aria-current','location');
+      else link.removeAttribute('aria-current');
+    });
+    nav.setAttribute('aria-label',document.documentElement.lang === 'en' ? 'Wedding page quick navigation' : '婚禮頁面快速導覽');
+  }
+  function schedule() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule);
+  window.addEventListener('kr-language',schedule);
+  // Keep the bottom controls away from the on-screen keyboard while typing.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', () => {
+      const viewport = window.visualViewport;
+      nav.classList.toggle('is-keyboard-open', viewport.scale === 1 && window.innerHeight - viewport.height > 150);
+    });
+  }
+  update();
+})();
 </script>
 </body>
 </html>
