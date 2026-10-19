@@ -1227,6 +1227,37 @@ html[lang="zh-Hant"] .transport-map-note {
       .hero__bottom { flex-direction:column; }
     }
   </style>
+  <style id="wedding-month-layout">
+    #details .details-card { grid-template-columns:1fr 1fr; margin-top:38px; background:rgba(255,254,250,.65); }
+    #details .detail { padding:clamp(24px,3vw,44px); min-width:0; }
+    #details .detail__answer { font-size:26px; line-height:1.5; letter-spacing:.01em; margin:14px 0 8px; }
+    #details .detail:first-child { text-align:center; }
+    #details .detail:first-child .detail__note { margin-inline:auto; }
+    .wedding-month { width:100%; max-width:390px; margin:26px auto 0; table-layout:fixed; border-collapse:separate; border-spacing:0 5px; }
+    .wedding-month caption { padding:0 0 20px; font-family:var(--serif); font-size:34px; font-weight:400; color:var(--antique); }
+    .calendar-year { display:block; font-family:var(--sans); font-size:12px; letter-spacing:.24em; margin-top:5px; }
+    .wedding-month th { padding-bottom:12px; font-size:13px; font-weight:400; color:var(--muted); border-bottom:1px solid var(--line); }
+    .wedding-month td { height:44px; text-align:center; font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--ink); }
+    .wedding-month td:first-child { color:var(--antique); }
+    .wedding-day-wrap { position:relative; display:inline-grid; place-items:center; width:52px; height:48px; }
+    .calendar-heart { position:absolute; width:54px; height:52px; inset:-2px -1px; overflow:visible; fill:#f6ead1; stroke:var(--gold); stroke-width:1.7; }
+    .wedding-day time { position:relative; font-weight:600; color:var(--antique); line-height:1; transform:translateY(-2px); }
+    .calendar-note { font-size:14px; color:var(--muted); margin:22px 0 17px; line-height:1.7; }
+    #details #venueCarousel { height:clamp(260px,26vw,365px); aspect-ratio:auto; margin-bottom:24px; border-radius:4px; }
+    #details .detail--venue .detail__answer { font-family:var(--serif); font-size:32px; letter-spacing:.03em; }
+    #details .detail--venue .detail__note { max-width:none; line-height:1.8; }
+    #details .venue-map-link { margin-top:18px; }
+    #transport .transport-map iframe { height:340px; }
+    @media(max-width:760px){
+      #details .details-card { grid-template-columns:1fr; }
+      #details .detail { padding:28px 20px; }
+      #details .detail__answer { font-size:22px; }
+      #details #venueCarousel { height:auto; aspect-ratio:1.15; }
+      .wedding-day-wrap { width:40px; }
+      .calendar-heart { width:46px; left:-3px; }
+      #transport .transport-map iframe { height:260px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1298,10 +1329,22 @@ html[lang="zh-Hant"] .transport-map-note {
         <div class="details-card reveal reveal-delay">
           <article class="detail">
             <div class="detail__term" data-i18n="when">When</div>
-            <h3 class="detail__answer" data-i18n="fullDate">Sunday<br>21 March 2027</h3>
+            <h3 class="detail__answer" data-i18n="calendarDate">Sunday · 21 March 2027</h3>
             <p class="detail__note" data-i18n="timePending">Time to be announced</p>
+<table class="wedding-month" aria-label="March 2027, wedding on Sunday 21 March"><caption><span data-i18n="calendarMonth">March</span><span class="calendar-year">2027</span></caption><thead><tr><th scope="col" data-i18n="calDay0">Sun</th><th scope="col" data-i18n="calDay1">Mon</th><th scope="col" data-i18n="calDay2">Tue</th><th scope="col" data-i18n="calDay3">Wed</th><th scope="col" data-i18n="calDay4">Thu</th><th scope="col" data-i18n="calDay5">Fri</th><th scope="col" data-i18n="calDay6">Sat</th></tr></thead><tbody><tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr><tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr><tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr><tr><td class="wedding-day"><span class="wedding-day-wrap"><svg class="calendar-heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 53C26 47 5 33 5 19C5 4 24 1 32 15C40 1 59 4 59 19C59 33 38 47 32 53Z"/></svg><time datetime="2027-03-21" aria-label="Wedding day, 21 March 2027">21</time></span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td></tr><tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr></tbody></table><p class="calendar-note" data-i18n="calendarNote">A day for us, a memory with you.</p><a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a>
           </article>
-          <article class="detail">
+          <article class="detail detail--venue">
+      <div class="transport-photo venue-carousel" id="venueCarousel" role="region" aria-roledescription="carousel" aria-label="場地相片">
+        <img src="greenhouse.jpg" alt="GREENHOUSE outdoor ceremony area" loading="lazy" class="venue-slide">
+        <img src="venue-table.jpg" alt="GREENHOUSE reception table setting" loading="lazy" class="venue-slide" hidden>
+        <img src="venue-marquee.jpg" alt="GREENHOUSE daytime marquee" loading="lazy" class="venue-slide" hidden>
+        <div class="venue-controls">
+          <button type="button" data-venue="previous" aria-label="上一張">‹</button>
+          <span class="venue-count" aria-live="off">1 / 3</span>
+          <button type="button" data-venue="next" aria-label="下一張">›</button>
+          <button type="button" data-venue="play" aria-label="暫停幻燈片">Ⅱ</button>
+        </div>
+      </div>
             <div class="detail__term" data-i18n="where">Where</div>
             <h3 class="detail__answer" data-i18n="venuePending">Venue to<br>be announced</h3>
             <p class="detail__note" data-i18n="locationPending">Location details coming soon</p>
@@ -1378,18 +1421,6 @@ html[lang="zh-Hant"] .transport-map-note {
       </div>
 
       <div class="transport-visuals">
-      <div class="transport-photo venue-carousel" id="venueCarousel" role="region" aria-roledescription="carousel" aria-label="場地相片">
-        <img src="greenhouse.jpg" alt="GREENHOUSE outdoor ceremony area" loading="lazy" class="venue-slide">
-        <img src="venue-table.jpg" alt="GREENHOUSE reception table setting" loading="lazy" class="venue-slide" hidden>
-        <img src="venue-marquee.jpg" alt="GREENHOUSE daytime marquee" loading="lazy" class="venue-slide" hidden>
-        <div class="transport-photo-caption"><span>THE VENUE</span><strong>GREENHOUSE · YUEN LONG</strong></div>
-        <div class="venue-controls">
-          <button type="button" data-venue="previous" aria-label="上一張">‹</button>
-          <span class="venue-count" aria-live="off">1 / 3</span>
-          <button type="button" data-venue="next" aria-label="下一張">›</button>
-          <button type="button" data-venue="play" aria-label="暫停幻燈片">Ⅱ</button>
-        </div>
-      </div>
       <div class="transport-map reveal reveal-delay">
         <iframe
           title="GREENHOUSE venue location"
@@ -1656,6 +1687,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
   <script>
     const copy = {
       en: {
+        calendarDate:"Sunday · 21 March 2027", calendarMonth:"March", calendarNote:"A day for us, a memory with you.", calDay0:"Sun", calDay1:"Mon", calDay2:"Tue", calDay3:"Wed", calDay4:"Thu", calDay5:"Fri", calDay6:"Sat",
         addCalendar: "Add to calendar", openVenueMap: "Open Google Maps ↗",
         jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
         pageTitle: 'Koey & Ringo — 21 March 2027', skip: 'Skip to content', navStory: 'Story', navDetails: 'Details', navSchedule: 'Wedding Schedule', navTransport: 'Getting Here', navRsvp: 'RSVP',
@@ -1697,6 +1729,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
+        calendarDate:"2027年3月21日 · 星期日", calendarMonth:"三月", calendarNote:"把這天，留給我們的幸福時刻。", calDay0:"日", calDay1:"一", calDay2:"二", calDay3:"三", calDay4:"四", calDay5:"五", calDay6:"六",
         addCalendar: "加到日曆", openVenueMap: "開啟 Google Maps 導航 ↗",
         jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
         pageTitle: 'Koey & Ringo — 2027年3月21日', skip: '跳至內容', navStory: '我們的故事', navDetails: '婚禮資訊', navSchedule: '婚禮流程', navTransport: '交通指南', navRsvp: '出席回覆',
