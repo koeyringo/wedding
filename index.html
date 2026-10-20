@@ -1475,6 +1475,28 @@ html[lang="zh-Hant"] .hero__content > .hero__date { width:100%; text-align:cente
   text-decoration-thickness:1px; text-underline-offset:.22em;
 }
 </style>
+
+<style id="date-position-and-transport-divider">
+  @media(min-width:901px) {
+    .hero__content > .hero__date,
+    html[lang="zh-Hant"] .hero__content > .hero__date { width:88%; justify-self:start; }
+  }
+  #transport { padding-bottom:42px; }
+  #transport::after {
+    content:""; display:block; width:min(1170px,94%); height:1px; margin:38px auto 0;
+    background:linear-gradient(90deg,transparent,#d8bf8c 15%,#a98137 47%,transparent 49%,transparent 51%,#a98137 53%,#d8bf8c 85%,transparent);
+  }
+  #transport::before {
+    content:""; position:absolute; bottom:38px; left:calc(50% - 4px);
+    width:8px; height:8px; border:1px solid #b18a43;
+    background:#fffefa; transform:rotate(45deg);
+  }
+  #schedule { padding-top:44px; }
+  @media(min-width:768px) {
+    #transport .transport-grid { grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(28px,3.5vw,50px); }
+    #transport .transport-map iframe { height:auto; width:100%; aspect-ratio:1 / 1; min-height:430px; }
+  }
+</style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
