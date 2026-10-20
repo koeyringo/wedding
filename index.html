@@ -1367,6 +1367,47 @@ html[lang="zh-Hant"] .transport-map-note {
 
     }
   </style>
+
+  <style id="site-polish-ten-years">
+    .site-header .nav { gap:10px; }
+    .site-header .nav a,.language-toggle,.calendar-link,.venue-map-link,.transport-link,.venue-map-button,.button {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height:44px; padding:11px 17px; border:1px solid #cfb47c; border-radius:10px;
+      background:rgba(255,254,250,.92); color:var(--antique); text-decoration:none;
+      box-shadow:0 3px 10px rgba(133,101,47,.06); line-height:1.4;
+      transition:background .2s,border-color .2s,box-shadow .2s;
+    }
+    .site-header .nav a { font-size:16px; letter-spacing:.04em; opacity:1; white-space:nowrap; }
+    .site-header .nav a:last-child { background:var(--antique); color:var(--cream); border-color:var(--antique); }
+    .site-header .nav a:hover,.language-toggle:hover,.calendar-link:hover,.venue-map-link:hover,.transport-link:hover,.venue-map-button:hover,.button:hover {
+      background:#f2e4c5; color:var(--antique); border-color:var(--gold); box-shadow:0 4px 14px rgba(133,101,47,.12); transform:none;
+    }
+    a:focus-visible,button:focus-visible { outline:2px solid var(--antique); outline-offset:4px; }
+    .venue-map-button { display:flex; }
+    .venue-controls button { border:1px solid #cfb47c; background:var(--cream); }
+    .hero__content > .hero__eyebrow { font-size:16px; line-height:1.7; letter-spacing:.12em; }
+    .hero__content > .hero__countdown-note { font-size:18px; line-height:1.8; letter-spacing:.04em; }
+    .calendar-actions { display:flex; align-items:center; justify-content:center; gap:14px; margin:22px auto 0; }
+    .calendar-actions .calendar-note { margin:0; min-width:0; font-size:14px; }
+    .calendar-actions .calendar-link { flex-shrink:0; white-space:nowrap; }
+    .story-closing { margin:30px 0 0 28px; color:var(--antique); font-size:clamp(18px,1.5vw,22px); line-height:1.9; }
+    #transport .transport-grid { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+    #transport .transport-map iframe { height:clamp(390px,36vw,510px); }
+    .place-highlight { font-weight:600; color:#805c21; background:#f4e8cb; padding:.06em .22em; border-radius:4px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+    @media(min-width:761px) and (max-width:1150px) {
+      .site-header { padding-inline:26px; gap:16px; }
+      .site-header .nav { gap:7px; }
+      .site-header .nav a { font-size:14px; padding:10px 12px; }
+    }
+    @media(max-width:767px) {
+      .hero__content > .hero__eyebrow { font-size:14px; letter-spacing:.06em; }
+      .hero__content > .hero__countdown-note { font-size:15px; letter-spacing:.02em; }
+      .calendar-actions { gap:10px; }
+      .calendar-actions .calendar-link { padding:10px 12px; font-size:13px; }
+      #transport .transport-grid { grid-template-columns:1fr; }
+      #transport .transport-map iframe { height:330px; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1413,13 +1454,14 @@ html[lang="zh-Hant"] .transport-map-note {
       <div class="section-shell story-layout">
         <div class="story-intro reveal">
           <div class="eyebrow section-label" data-i18n="ourStoryLabel">我們的故事</div>
-          <h2 id="storyTitle" class="story-timeline-title" data-i18n="ourStoryBeginning">幸福，從相遇開始。</h2>
+          <h2 id="storyTitle" class="story-timeline-title" data-i18n="ourStoryBeginning">從那年相遇，到往後餘生。</h2>
           <ol class="story-timeline">
-            <li><span class="story-year">2017</span><p data-i18n="storyMet">那一年，<br>我們<em>相遇</em>。</p></li>
-            <li><span class="story-year">2018</span><p data-i18n="storyLove">從此，<br>生活多了一個<em>你</em>。</p></li>
-            <li><span class="story-year">2018 – 2026</span><p data-i18n="storyGrew">一起走過世界，<br>也一起慢慢<em>成長</em>。</p></li>
-            <li><span class="story-year">2027</span><p data-i18n="storyForever">從今以後，<br>我們決定攜手<em>一生</em>。</p></li>
+            <li><span class="story-year">2017</span><p data-i18n="storyMet">那一年，<br>我們的故事，從<em>相遇</em>開始。</p></li>
+            <li><span class="story-year">2018</span><p data-i18n="storyLove">從朋友，到戀人，<br>平凡的日子多了一個<em>你</em>。</p></li>
+            <li><span class="story-year">2018 – 2026</span><p data-i18n="storyGrew">一起走過不同的風景，<br>也陪彼此長成今天的<em>模樣</em>。</p></li>
+            <li><span class="story-year">2027</span><p data-i18n="storyForever">相識十年，<br>我們決定把往後的日子，<br>都寫成<em>我們</em>。</p></li>
           </ol>
+          <p class="story-closing" data-i18n="storyClosing">十年，是故事的前章。<br>往後，還有一生。</p>
           <p class="story-continued" data-i18n="storyContinued">未完待續⋯</p>
         </div>
         <div class="photo-composition reveal reveal-delay" aria-label="Koey and Ringo photos">
@@ -1444,7 +1486,7 @@ html[lang="zh-Hant"] .transport-map-note {
           <article class="detail">
             <h3 class="detail__answer" data-i18n="calendarDate">Sunday · 21 March 2027</h3>
             <p class="detail__note" data-i18n="timePending">Time to be announced</p>
-<div class="calendar-panel"><table class="wedding-month" aria-label="March 2027, wedding on Sunday 21 March"><caption><span data-i18n="calendarMonth">March</span><span class="calendar-year">2027</span></caption><thead><tr><th scope="col" data-i18n="calDay0">Sun</th><th scope="col" data-i18n="calDay1">Mon</th><th scope="col" data-i18n="calDay2">Tue</th><th scope="col" data-i18n="calDay3">Wed</th><th scope="col" data-i18n="calDay4">Thu</th><th scope="col" data-i18n="calDay5">Fri</th><th scope="col" data-i18n="calDay6">Sat</th></tr></thead><tbody><tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr><tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr><tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr><tr><td class="wedding-day"><span class="wedding-day-wrap"><svg class="calendar-heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 53C26 47 5 33 5 19C5 4 24 1 32 15C40 1 59 4 59 19C59 33 38 47 32 53Z"/></svg><time datetime="2027-03-21" aria-label="Wedding day, 21 March 2027">21</time></span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td></tr><tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr></tbody></table></div><p class="calendar-note" data-i18n="calendarNote">A day for us, a memory with you.</p><a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a>
+<div class="calendar-panel"><table class="wedding-month" aria-label="March 2027, wedding on Sunday 21 March"><caption><span data-i18n="calendarMonth">March</span><span class="calendar-year">2027</span></caption><thead><tr><th scope="col" data-i18n="calDay0">Sun</th><th scope="col" data-i18n="calDay1">Mon</th><th scope="col" data-i18n="calDay2">Tue</th><th scope="col" data-i18n="calDay3">Wed</th><th scope="col" data-i18n="calDay4">Thu</th><th scope="col" data-i18n="calDay5">Fri</th><th scope="col" data-i18n="calDay6">Sat</th></tr></thead><tbody><tr><td></td><td><span>1</span></td><td><span>2</span></td><td><span>3</span></td><td><span>4</span></td><td><span>5</span></td><td><span>6</span></td></tr><tr><td><span>7</span></td><td><span>8</span></td><td><span>9</span></td><td><span>10</span></td><td><span>11</span></td><td><span>12</span></td><td><span>13</span></td></tr><tr><td><span>14</span></td><td><span>15</span></td><td><span>16</span></td><td><span>17</span></td><td><span>18</span></td><td><span>19</span></td><td><span>20</span></td></tr><tr><td class="wedding-day"><span class="wedding-day-wrap"><svg class="calendar-heart" viewBox="0 0 64 60" aria-hidden="true"><path d="M32 53C26 47 5 33 5 19C5 4 24 1 32 15C40 1 59 4 59 19C59 33 38 47 32 53Z"/></svg><time datetime="2027-03-21" aria-label="Wedding day, 21 March 2027">21</time></span></td><td><span>22</span></td><td><span>23</span></td><td><span>24</span></td><td><span>25</span></td><td><span>26</span></td><td><span>27</span></td></tr><tr><td><span>28</span></td><td><span>29</span></td><td><span>30</span></td><td><span>31</span></td><td></td><td></td><td></td></tr></tbody></table></div><div class="calendar-actions"><p class="calendar-note" data-i18n="calendarNote">A day for us, a memory with you.</p><a class="calendar-link" href="koey-ringo-wedding.ics" download data-i18n="addCalendar">加到日曆</a></div>
           </article>
           <article class="detail detail--venue">
       <div class="transport-photo venue-carousel" id="venueCarousel" role="region" aria-roledescription="carousel" aria-label="場地相片">
@@ -1724,6 +1766,10 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
   }
 }
 
+
+button{border-radius:10px;background:#85652f;color:#fffefa;border-color:#85652f;box-shadow:0 3px 10px rgba(133,101,47,.08)}
+button:hover{background:#a98137;transform:none}button:disabled{opacity:.55}
+.choice{border-radius:10px}.choice:hover{border-color:#cfb47c}
 </style>
 <div class="wrap">
   <section class="form-card" id="formCard">
@@ -1801,7 +1847,7 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
   <script>
     const copy = {
       en: {
-        ourStoryLabel:"Our Story", ourStoryBeginning:"The Beginning of Our Forever", storyMet:"We <em>met.</em>", storyLove:"We fell in <em>love.</em>", storyGrew:"We grew <em>together.</em>", storyForever:"We choose <em>forever.</em>", storyContinued:"To Be Continued…", photoYear2017:"2017", photoYear2026:"2026",
+        ourStoryLabel:"Our Story", ourStoryBeginning:"From Our First Hello to Forever", storyMet:"That year,<br>our story began when we <em>met.</em>", storyLove:"From friends to lovers,<br>ordinary days became brighter with <em>you.</em>", storyGrew:"We explored the world,<br>and grew into who we are <em>together.</em>", storyForever:"Ten years since we met,<br>we choose to write every chapter ahead<br>as <em>us.</em>", storyClosing:"Ten years of our story.<br>A lifetime still to come.", storyContinued:"To Be Continued…", photoYear2017:"2017", photoYear2026:"2026",
         calendarDate:"Sunday · 21 March 2027", calendarMonth:"March", calendarNote:"A day for us, a memory with you.", calDay0:"Sun", calDay1:"Mon", calDay2:"Tue", calDay3:"Wed", calDay4:"Thu", calDay5:"Fri", calDay6:"Sat",
         addCalendar: "Add to calendar", openVenueMap: "Open Google Maps ↗",
         jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
@@ -1823,11 +1869,11 @@ input:focus-visible,textarea:focus-visible,button:focus-visible,.choice:has(inpu
 transportTitle: 'Getting <em>There</em>',
 transportIntro: 'A little guide to help you find your way to our celebration.',
 transportShuttle: 'Shuttle Bus',
-transportShuttleDesc: 'A complimentary shuttle bus will run between GREENHOUSE and Exit D of Kam Sheung Road MTR Station. Pick-up details and departure times will be announced closer to the wedding.',
+transportShuttleDesc: 'A complimentary shuttle bus will run between <strong class="place-highlight">GREENHOUSE</strong> and <strong class="place-highlight">Exit D of Kam Sheung Road MTR Station</strong>. Pick-up details and departure times will be announced closer to the wedding.',
 transportDriving: 'By Car',
-transportDrivingDesc: 'Guests driving to the venue may use the nearby Shui Mei Tsuen Outdoor Visitor Car Park. Parking spaces are limited, so please allow extra time.',
+transportDrivingDesc: 'Guests driving to the venue may use the nearby <strong class="place-highlight">Shui Mei Tsuen Outdoor Visitor Car Park</strong>. Parking spaces are limited, so please allow extra time.',
 transportTaxi: 'Taxi / Uber',
-transportTaxiDesc: 'Taxis are available at the public transport interchange near Exit D of Kam Sheung Road MTR Station. Please tell the driver your destination is Petworldresort. For Uber or other ride-hailing services, search for “Petworldresort”, which is less than a minute’s walk from GREENHOUSE.',
+transportTaxiDesc: 'Taxis are available at the public transport interchange near <strong class="place-highlight">Exit D of Kam Sheung Road MTR Station</strong>. Please tell the driver your destination is <strong class="place-highlight">Petworldresort</strong>. For Uber or other ride-hailing services, search for “<strong class="place-highlight">Petworldresort</strong>”, which is less than a minute’s walk from <strong class="place-highlight">GREENHOUSE</strong>.',
 parkingLink: 'View Car Park ↗',
 mapNote: 'GREENHOUSE · 351 Shui Mei Tsuen, Kam Tin, Yuen Long',
         scheduleKicker: 'A Day to Remember',
@@ -1844,7 +1890,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
-        ourStoryLabel:"我們的故事", ourStoryBeginning:"幸福，從相遇開始。", storyMet:"那一年，<br>我們<em>相遇</em>。", storyLove:"從此，<br>生活多了一個<em>你</em>。", storyGrew:"一起走過世界，<br>也一起慢慢<em>成長</em>。", storyForever:"從今以後，<br>我們決定攜手<em>一生</em>。", storyContinued:"未完待續⋯", photoYear2017:"2017年", photoYear2026:"2026年",
+        ourStoryLabel:"我們的故事", ourStoryBeginning:"從那年相遇，到往後餘生。", storyMet:"那一年，<br>我們的故事，從<em>相遇</em>開始。", storyLove:"從朋友，到戀人，<br>平凡的日子多了一個<em>你</em>。", storyGrew:"一起走過不同的風景，<br>也陪彼此長成今天的<em>模樣</em>。", storyForever:"相識十年，<br>我們決定把往後的日子，<br>都寫成<em>我們</em>。", storyClosing:"十年，是故事的前章。<br>往後，還有一生。", storyContinued:"未完待續⋯", photoYear2017:"2017年", photoYear2026:"2026年",
         calendarDate:"2027年3月21日 · 星期日", calendarMonth:"三月", calendarNote:"把這天，留給我們的幸福時刻。", calDay0:"日", calDay1:"一", calDay2:"二", calDay3:"三", calDay4:"四", calDay5:"五", calDay6:"六",
         addCalendar: "加到日曆", openVenueMap: "開啟 Google Maps 導航 ↗",
         jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
@@ -1866,11 +1912,11 @@ mapLink: 'Google Maps 導航 ↗',
 transportTitle: '交通<em>指南</em>',
 transportIntro: '期待與你在這個特別的日子相聚，以下是前往婚禮場地的交通資訊。',
 transportShuttle: '接駁巴士',
-transportShuttleDesc: '我們將安排免費接駁巴士，往返 GREENHOUSE 與港鐵屯馬綫錦上路站 D 出口。詳細班次、集合地點及時間將於婚禮前公布，敬請留意。',
+transportShuttleDesc: '我們將安排免費接駁巴士，往返 <strong class="place-highlight">GREENHOUSE</strong> 與<strong class="place-highlight">港鐵屯馬綫錦上路站 D 出口</strong>。詳細班次、集合地點及時間將於婚禮前公布，敬請留意。',
 transportDriving: '自行駕車',
-transportDrivingDesc: '自行駕車的賓客可使用附近的水尾村露天訪客停車場。由於車位有限，建議預留充足時間。',
+transportDrivingDesc: '自行駕車的賓客可使用附近的<strong class="place-highlight">水尾村露天訪客停車場</strong>。由於車位有限，建議預留充足時間。',
 transportTaxi: '的士 / Uber',
-transportTaxiDesc: '可於錦上路站 D 出口的公共運輸交匯處乘搭的士，並向司機提供「犬學堂／Petworldresort」作為目的地。如使用 Uber 等網約車，亦可搜尋「Petworldresort」，步行至 GREENHOUSE 不足 1 分鐘。',
+transportTaxiDesc: '可於<strong class="place-highlight">錦上路站 D 出口</strong>的公共運輸交匯處乘搭的士，並向司機提供「<strong class="place-highlight">犬學堂／Petworldresort</strong>」作為目的地。如使用 Uber 等網約車，亦可搜尋「<strong class="place-highlight">Petworldresort</strong>」，步行至 <strong class="place-highlight">GREENHOUSE</strong> 不足 1 分鐘。',
 parkingLink: '查看停車場位置 ↗',
 mapNote: 'GREENHOUSE · 新界元朗錦田水尾村351號',
         scheduleKicker: '值得珍藏的一天',
