@@ -1497,6 +1497,27 @@ html[lang="zh-Hant"] .hero__content > .hero__date { width:100%; text-align:cente
     #transport .transport-map iframe { height:auto; width:100%; aspect-ratio:1 / 1; min-height:430px; }
   }
 </style>
+
+<style id="name-aligned-date-and-tight-rsvp">
+  .hero__name-group { width:max-content; max-width:100%; justify-self:start; margin-top:20px; }
+  .hero__name-group .hero__date,
+  html[lang="zh-Hant"] .hero__name-group .hero__date {
+    width:100%; margin:0; text-align:center; font-family:'Great Vibes',cursive;
+    font-size:clamp(38px,4.2vw,64px); font-weight:400; letter-spacing:.035em;
+    line-height:1.35; color:var(--antique); text-transform:none;
+  }
+  .hero__name-group h1 { width:max-content; max-width:100%; }
+  #schedule { padding-bottom:42px; }
+  #rsvp { padding-top:48px; }
+  @media(max-width:760px) {
+    .hero__name-group { order:1; width:100%; margin-top:18px; }
+    .hero__name-group .hero__date,
+    html[lang="zh-Hant"] .hero__name-group .hero__date { font-size:clamp(34px,9vw,46px); }
+    .hero__name-group h1 { width:100%; }
+    #schedule { padding-bottom:32px; }
+    #rsvp { padding-top:36px; }
+  }
+</style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1521,8 +1542,10 @@ html[lang="zh-Hant"] .hero__content > .hero__date { width:100%; text-align:cente
 </div>
       <div class="hero__content">
         <div class="hero__eyebrow" data-i18n="heroKicker">A celebration of love</div>
-        <div class="hero__date" data-i18n="heroDate">21 · 03 · 2027</div>
+        <div class="hero__name-group">
+          <div class="hero__date" data-i18n="heroDate">21 · 03 · 2027</div>
         <h1 id="heroTitle"><span>Koey</span><span class="ampersand">&amp;</span><span>Ringo</span></h1>
+        </div>
         <p class="hero__countdown-note" data-i18n="heroNote">
   距離我們一起展開人生新篇章的日子。
 </p>
