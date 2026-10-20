@@ -1408,6 +1408,39 @@ html[lang="zh-Hant"] .transport-map-note {
       #transport .transport-map iframe { height:330px; }
     }
   </style>
+
+<style id="english-story-readable">
+  html[lang="en"] #story .story-intro { min-width:0; }
+  html[lang="en"] #story .story-timeline p {
+    white-space:normal; overflow-wrap:break-word;
+    font-size:clamp(22px,2vw,31px); line-height:1.55;
+  }
+  html[lang="en"] #story .story-closing {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500;
+    font-size:clamp(26px,2.5vw,36px); line-height:1.4; letter-spacing:.015em;
+    padding-top:20px; margin-top:32px; position:relative;
+  }
+  html[lang="en"] #story .story-closing::before {
+    content:""; position:absolute; top:0; left:0; width:48px; height:1px; background:var(--gold);
+  }
+  @media(min-width:761px) {
+    html[lang="en"] #story .story-layout {
+      grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+      gap:clamp(160px,16vw,240px);
+    }
+  }
+  @media(min-width:761px) and (max-width:900px) {
+    html[lang="en"] #story .photo-composition { min-height:0; padding:0 0 190px; }
+    html[lang="en"] #story .portrait--main { position:relative; top:0; right:auto; width:94%; margin-left:6%; }
+    html[lang="en"] #story .portrait--small { left:6%; width:75.4%; }
+  }
+</style>
+
+<style id="desktop-story-text-inset">
+  @media(min-width:761px) {
+    #story .story-intro { padding-left:clamp(18px,2vw,32px); min-width:0; }
+  }
+</style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
