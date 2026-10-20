@@ -1441,6 +1441,10 @@ html[lang="zh-Hant"] .transport-map-note {
     #story .story-intro { padding-left:clamp(18px,2vw,32px); min-width:0; }
   }
 </style>
+<style id="story-phrase-wrap">
+@media(min-width:761px){html[lang="en"] #story .story-keep-together{white-space:nowrap}}
+#story .story-companionship{font-weight:600}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#story" data-i18n="skip">Skip to content</a>
@@ -1491,7 +1495,7 @@ html[lang="zh-Hant"] .transport-map-note {
           <ol class="story-timeline">
             <li><span class="story-year">2017</span><p data-i18n="storyMet">那一年，<br>我們的故事，從<em>相遇</em>開始。</p></li>
             <li><span class="story-year">2018</span><p data-i18n="storyLove">從朋友，到戀人，<br>平凡的日子多了一個<em>你</em>。</p></li>
-            <li><span class="story-year">2018 – 2026</span><p data-i18n="storyGrew">一起走過不同的風景，<br>也陪彼此長成今天的<em>模樣</em>。</p></li>
+            <li><span class="story-year">2018 – 2026</span><p data-i18n="storyGrew">一起走過不同的風景，<br>也<em class=story-companionship>陪伴</em>彼此長成今天的模樣。</p></li>
             <li><span class="story-year">2027</span><p data-i18n="storyForever">相識十年，<br>我們決定把往後的日子，<br>都寫成<em>我們</em>。</p></li>
           </ol>
           <p class="story-closing" data-i18n="storyClosing">十年，是故事的前章。<br>往後，還有一生。</p>
@@ -1880,7 +1884,7 @@ button:hover{background:#a98137;transform:none}button:disabled{opacity:.55}
   <script>
     const copy = {
       en: {
-        ourStoryLabel:"Our Story", ourStoryBeginning:"From Our First Hello to Forever", storyMet:"That year,<br>our story began when we <em>met.</em>", storyLove:"From friends to lovers,<br>ordinary days became brighter with <em>you.</em>", storyGrew:"We explored the world,<br>and grew into who we are <em>together.</em>", storyForever:"Ten years since we met,<br>we choose to write every chapter ahead<br>as <em>us.</em>", storyClosing:"Ten years of our story.<br>A lifetime still to come.", storyContinued:"To Be Continued…", photoYear2017:"2017", photoYear2026:"2026",
+        ourStoryLabel:"Our Story", ourStoryBeginning:"From Our First Hello to Forever", storyMet:"That year,<br>our story began when we <em>met.</em>", storyLove:"From friends to lovers,<br>ordinary days became brighter <span class=story-keep-together>with <em>you.</em></span>", storyGrew:"We explored the world,<br>and grew into who we are <em>together.</em>", storyForever:"Ten years since we met,<br>we choose to write every chapter <span class=story-keep-together>ahead as <em>us.</em></span>", storyClosing:"Ten years of our story.<br>A lifetime still to come.", storyContinued:"To Be Continued…", photoYear2017:"2017", photoYear2026:"2026",
         calendarDate:"Sunday · 21 March 2027", calendarMonth:"March", calendarNote:"A day for us, a memory with you.", calDay0:"Sun", calDay1:"Mon", calDay2:"Tue", calDay3:"Wed", calDay4:"Thu", calDay5:"Fri", calDay6:"Sat",
         addCalendar: "Add to calendar", openVenueMap: "Open Google Maps ↗",
         jumpStory:'Story', jumpSchedule:'Schedule', jumpTransport:'Travel', jumpDetails:'Details', jumpRsvp:'RSVP',
@@ -1923,7 +1927,7 @@ tbc: 'Time to be announced',
         modalKicker: 'RSVP preview', modalTitle: 'A little<br>reply card.', modalCopy: 'This is a working demo of the RSVP form. It will not send or save any information.', nameLabel: 'Your name', namePlaceholder: 'Name', attendanceLabel: 'Will you attend?', attendanceChoose: 'Please select', attendanceYes: 'Joyfully accepts', attendanceNo: 'Regretfully declines', guestCountLabel: 'Number of guests', guestCountChoose: 'Please select', messageLabel: 'A note for the couple', messagePlaceholder: 'Optional', submitDemo: 'Submit demo reply', successTitle: 'Thank you.', successCopy: 'This was only a preview, so no reply has been sent or stored.', successClose: 'Return to website', closeRsvp: 'Close RSVP form'
       },
       zh: {
-        ourStoryLabel:"我們的故事", ourStoryBeginning:"從那年相遇，到往後餘生。", storyMet:"那一年，<br>我們的故事，從<em>相遇</em>開始。", storyLove:"從朋友，到戀人，<br>平凡的日子多了一個<em>你</em>。", storyGrew:"一起走過不同的風景，<br>也陪彼此長成今天的<em>模樣</em>。", storyForever:"相識十年，<br>我們決定把往後的日子，<br>都寫成<em>我們</em>。", storyClosing:"十年，是故事的前章。<br>往後，還有一生。", storyContinued:"未完待續⋯", photoYear2017:"2017年", photoYear2026:"2026年",
+        ourStoryLabel:"我們的故事", ourStoryBeginning:"從那年相遇，到往後餘生。", storyMet:"那一年，<br>我們的故事，從<em>相遇</em>開始。", storyLove:"從朋友，到戀人，<br>平凡的日子多了一個<em>你</em>。", storyGrew:"一起走過不同的風景，<br>也<em class=story-companionship>陪伴</em>彼此長成今天的模樣。", storyForever:"相識十年，<br>我們決定把往後的日子，<br>都寫成<em>我們</em>。", storyClosing:"十年，是故事的前章。<br>往後，還有一生。", storyContinued:"未完待續⋯", photoYear2017:"2017年", photoYear2026:"2026年",
         calendarDate:"2027年3月21日 · 星期日", calendarMonth:"三月", calendarNote:"把這天，留給我們的幸福時刻。", calDay0:"日", calDay1:"一", calDay2:"二", calDay3:"三", calDay4:"四", calDay5:"五", calDay6:"六",
         addCalendar: "加到日曆", openVenueMap: "開啟 Google Maps 導航 ↗",
         jumpStory:'故事', jumpSchedule:'流程', jumpTransport:'交通', jumpDetails:'資訊', jumpRsvp:'回覆',
